@@ -21,10 +21,13 @@ def read_csv_file(file_path, column_index, delimiter=','):
                     birthday_found = True
             if not birthday_found:
                 print("No birthdays today or tomorrow.")
+                log_event("No birthdays today or tomorrow.")
     except FileNotFoundError:
         print(f"File '{file_path}' not found.")
+        log_event(f"File '{file_path}' not found.")
     except Exception as e:
         print(f"Error reading CSV file: {e}")
+        log_event(f"Error reading CSV file: {e}")
 
 def check_birthday(birthday, column1_data, today, tomorrow):
     try:
@@ -39,14 +42,17 @@ def check_birthday(birthday, column1_data, today, tomorrow):
             day, month, year = map(int, parts)
             if day == datetime.now().day and month == datetime.now().month:
                 send_email(column1_data, "today")
+                log_event(f"Birthday alert for {column1_data}: today.")
                 return True
             elif day == (datetime.now() + timedelta(days=1)).day and month == (datetime.now() + timedelta(days=1)).month:
                 send_email(column1_data, "tomorrow")
+                log_event(f"Birthday alert for {column1_data}: tomorrow.")
                 return True
         else:
             raise ValueError("Invalid date format")
     except (ValueError, IndexError) as e:
         print(f"Error parsing date '{birthday}': {e}")
+        log_event(f"Error parsing date '{birthday}': {e}")
     return False
 
 def send_email(username, event):
@@ -75,6 +81,11 @@ def send_email(username, event):
         server.login(sender_email, password)
         server.sendmail(sender_email, receiver_emails, message.as_string())
         print(f"Email sent for {event}: {username}")
+        log_event(f"Email sent for {event}: {username}")
+
+def log_event(message):
+    with open('log.txt', 'a') as log_file:
+        log_file.write(f"{datetime.now()} - {message}\n")
 
 file_path = 'birthday.csv'
 column_index = 1
