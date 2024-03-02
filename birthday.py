@@ -90,3 +90,5 @@ def log_event(message):
 file_path = 'birthday.csv'
 column_index = 1
 read_csv_file(file_path, column_index)
+
+#test
