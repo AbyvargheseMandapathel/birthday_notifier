@@ -48,7 +48,7 @@ jobs:
 
       - name: Commit files
         run: |
-          git add .
+          git add  log.txt 
           git status
           git commit -m "Update log.txt - ${{ steps.datetime.outputs.date }}"
           git push origin main
