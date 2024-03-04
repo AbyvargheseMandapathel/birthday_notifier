@@ -18,3 +18,7 @@
 2024-03-04 04:59:41.920909 - Birthday alert for Naveen V: tomorrow.
 2024-03-04 04:59:42.740758 - Email sent for tomorrow: SHINU C M
 2024-03-04 04:59:42.755004 - Birthday alert for SHINU C M: tomorrow.
+2024-03-04 07:51:44.460137 - Email sent for tomorrow: Naveen V
+2024-03-04 07:51:44.473701 - Birthday alert for Naveen V: tomorrow.
+2024-03-04 07:51:45.290298 - Email sent for tomorrow: SHINU C M
+2024-03-04 07:51:45.303725 - Birthday alert for SHINU C M: tomorrow.
