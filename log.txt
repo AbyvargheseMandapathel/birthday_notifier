@@ -14,3 +14,7 @@
 2024-03-03 07:00:41.268889 - Birthday alert for Sarath P O: today.
 2024-03-03 18:07:45.435154 - Email sent for today: Sarath P O
 2024-03-03 18:07:45.474069 - Birthday alert for Sarath P O: today.
+2024-03-04 04:59:41.906804 - Email sent for tomorrow: Naveen V
+2024-03-04 04:59:41.920909 - Birthday alert for Naveen V: tomorrow.
+2024-03-04 04:59:42.740758 - Email sent for tomorrow: SHINU C M
+2024-03-04 04:59:42.755004 - Birthday alert for SHINU C M: tomorrow.
