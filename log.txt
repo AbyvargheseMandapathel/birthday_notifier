@@ -88,3 +88,5 @@
 2024-03-21 18:08:31.693796 - No birthdays today or tomorrow.
 2024-03-22 04:35:17.676173 - Email sent for tomorrow: Albin Johnson
 2024-03-22 04:35:17.690101 - Birthday alert for Albin Johnson: tomorrow.
+2024-03-22 07:00:31.422146 - Email sent for tomorrow: Albin Johnson
+2024-03-22 07:00:31.462982 - Birthday alert for Albin Johnson: tomorrow.
