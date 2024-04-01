@@ -126,3 +126,5 @@
 2024-04-01 04:35:38.532052 - Birthday alert for Sandhu Babu: tomorrow.
 2024-04-01 07:00:35.514383 - Email sent for tomorrow: Sandhu Babu
 2024-04-01 07:00:35.524662 - Birthday alert for Sandhu Babu: tomorrow.
+2024-04-01 18:08:21.112834 - Email sent for tomorrow: Sandhu Babu
+2024-04-01 18:08:21.154596 - Birthday alert for Sandhu Babu: tomorrow.
