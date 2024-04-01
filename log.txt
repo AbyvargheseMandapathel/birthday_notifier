@@ -124,3 +124,5 @@
 2024-03-31 18:07:37.219401 - No birthdays today or tomorrow.
 2024-04-01 04:35:38.502135 - Email sent for tomorrow: Sandhu Babu
 2024-04-01 04:35:38.532052 - Birthday alert for Sandhu Babu: tomorrow.
+2024-04-01 07:00:35.514383 - Email sent for tomorrow: Sandhu Babu
+2024-04-01 07:00:35.524662 - Birthday alert for Sandhu Babu: tomorrow.
