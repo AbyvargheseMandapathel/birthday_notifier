@@ -182,3 +182,5 @@
 2024-04-17 07:00:57.659368 - Birthday alert for Ashitha Jensih: tomorrow.
 2024-04-17 18:09:12.988035 - Email sent for tomorrow: Ashitha Jensih
 2024-04-17 18:09:13.027699 - Birthday alert for Ashitha Jensih: tomorrow.
+2024-04-18 04:35:31.813934 - Email sent for today: Ashitha Jensih
+2024-04-18 04:35:31.824890 - Birthday alert for Ashitha Jensih: today.
