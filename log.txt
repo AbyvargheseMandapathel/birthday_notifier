@@ -194,3 +194,5 @@
 2024-04-20 04:36:22.806846 - No birthdays today or tomorrow.
 2024-04-20 07:00:46.681262 - No birthdays today or tomorrow.
 2024-04-20 18:09:34.738451 - No birthdays today or tomorrow.
+2024-04-21 04:36:28.034292 - Email sent for tomorrow: Jinsu Mariam Jacob
+2024-04-21 04:36:28.070453 - Birthday alert for Jinsu Mariam Jacob: tomorrow.
