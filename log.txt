@@ -202,3 +202,5 @@
 2024-04-21 18:09:28.330920 - Birthday alert for Jinsu Mariam Jacob: tomorrow.
 2024-04-22 04:35:13.556773 - Email sent for today: Jinsu Mariam Jacob
 2024-04-22 04:35:13.571893 - Birthday alert for Jinsu Mariam Jacob: today.
+2024-04-22 07:00:55.519143 - Email sent for today: Jinsu Mariam Jacob
+2024-04-22 07:00:55.558913 - Birthday alert for Jinsu Mariam Jacob: today.
