@@ -210,3 +210,5 @@
 2024-04-23 04:35:47.525601 - Birthday alert for Athul Krishna: tomorrow.
 2024-04-23 07:00:44.409464 - Email sent for tomorrow: Athul Krishna
 2024-04-23 07:00:44.454229 - Birthday alert for Athul Krishna: tomorrow.
+2024-04-23 18:08:43.767228 - Email sent for tomorrow: Athul Krishna
+2024-04-23 18:08:43.806559 - Birthday alert for Athul Krishna: tomorrow.
