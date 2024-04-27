@@ -227,3 +227,5 @@
 2024-04-26 07:00:50.443942 - Birthday alert for Shalini Mani: tomorrow.
 2024-04-26 18:08:38.820721 - Email sent for tomorrow: Shalini Mani
 2024-04-26 18:08:38.857854 - Birthday alert for Shalini Mani: tomorrow.
+2024-04-27 04:35:22.588204 - Email sent for today: Shalini Mani
+2024-04-27 04:35:22.598261 - Birthday alert for Shalini Mani: today.
