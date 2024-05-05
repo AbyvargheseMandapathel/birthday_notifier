@@ -256,3 +256,5 @@
 2024-05-04 18:08:11.312093 - No birthdays today or tomorrow.
 2024-05-05 04:36:23.766732 - Email sent for tomorrow: Nandhana A Regi
 2024-05-05 04:36:23.808281 - Birthday alert for Nandhana A Regi: tomorrow.
+2024-05-05 07:00:21.825985 - Email sent for tomorrow: Nandhana A Regi
+2024-05-05 07:00:21.835609 - Birthday alert for Nandhana A Regi: tomorrow.
