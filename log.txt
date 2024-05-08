@@ -274,3 +274,5 @@
 2024-05-07 18:09:17.309630 - Birthday alert for Sreejith S: tomorrow.
 2024-05-08 04:35:47.297567 - Email sent for today: Sreejith S
 2024-05-08 04:35:47.311603 - Birthday alert for Sreejith S: today.
+2024-05-08 07:00:20.577432 - Email sent for today: Sreejith S
+2024-05-08 07:00:20.616899 - Birthday alert for Sreejith S: today.
