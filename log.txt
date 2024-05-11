@@ -290,3 +290,5 @@
 2024-05-10 07:00:47.656020 - Birthday alert for Rions Reji: today.
 2024-05-10 18:09:26.740545 - Email sent for today: Rions Reji
 2024-05-10 18:09:26.788511 - Birthday alert for Rions Reji: today.
+2024-05-11 04:36:05.983344 - Email sent for tomorrow: Archana P G
+2024-05-11 04:36:05.997241 - Birthday alert for Archana P G: tomorrow.
