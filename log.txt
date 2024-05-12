@@ -296,3 +296,5 @@
 2024-05-11 07:00:30.936205 - Birthday alert for Archana P G: tomorrow.
 2024-05-11 18:08:47.573035 - Email sent for tomorrow: Archana P G
 2024-05-11 18:08:47.610098 - Birthday alert for Archana P G: tomorrow.
+2024-05-12 04:36:44.776524 - Email sent for today: Archana P G
+2024-05-12 04:36:44.818661 - Birthday alert for Archana P G: today.
