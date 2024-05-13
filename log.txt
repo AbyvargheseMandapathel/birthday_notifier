@@ -302,3 +302,5 @@
 2024-05-12 07:00:36.925172 - Birthday alert for Archana P G: today.
 2024-05-12 18:09:18.049991 - Email sent for today: Archana P G
 2024-05-12 18:09:18.093504 - Birthday alert for Archana P G: today.
+2024-05-13 04:36:56.610609 - Email sent for tomorrow: S Jayakrishnan
+2024-05-13 04:36:56.621067 - Birthday alert for S Jayakrishnan: tomorrow.
