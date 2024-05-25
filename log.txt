@@ -357,3 +357,5 @@
 2024-05-25 04:37:08.544703 - Birthday alert for SUDHISH SANKAR R: today.
 2024-05-25 07:00:42.390154 - Email sent for today: SUDHISH SANKAR R
 2024-05-25 07:00:42.403999 - Birthday alert for SUDHISH SANKAR R: today.
+2024-05-25 18:08:35.119720 - Email sent for today: SUDHISH SANKAR R
+2024-05-25 18:08:35.159390 - Birthday alert for SUDHISH SANKAR R: today.
