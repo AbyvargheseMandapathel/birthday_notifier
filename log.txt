@@ -403,3 +403,5 @@
 2024-06-06 18:09:29.459799 - No birthdays today or tomorrow.
 2024-06-07 04:37:52.565003 - Email sent for tomorrow: Imran Sunil
 2024-06-07 04:37:52.575546 - Birthday alert for Imran Sunil: tomorrow.
+2024-06-07 07:00:31.878568 - Email sent for tomorrow: Imran Sunil
+2024-06-07 07:00:31.888206 - Birthday alert for Imran Sunil: tomorrow.
