@@ -407,3 +407,5 @@
 2024-06-07 07:00:31.888206 - Birthday alert for Imran Sunil: tomorrow.
 2024-06-07 18:10:50.367477 - Email sent for tomorrow: Imran Sunil
 2024-06-07 18:10:50.376786 - Birthday alert for Imran Sunil: tomorrow.
+2024-06-08 04:36:53.029063 - Email sent for today: Imran Sunil
+2024-06-08 04:36:53.066554 - Birthday alert for Imran Sunil: today.
