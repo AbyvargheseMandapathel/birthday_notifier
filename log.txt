@@ -429,3 +429,5 @@
 2024-06-12 04:37:25.235859 - Birthday alert for William Reji : today.
 2024-06-12 07:00:27.751804 - Email sent for today: William Reji 
 2024-06-12 07:00:27.766007 - Birthday alert for William Reji : today.
+2024-06-12 18:09:58.491290 - Email sent for today: William Reji 
+2024-06-12 18:09:58.531070 - Birthday alert for William Reji : today.
