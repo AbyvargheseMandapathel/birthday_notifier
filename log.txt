@@ -442,3 +442,5 @@
 2024-06-14 18:10:36.505739 - Birthday alert for Akash Aji: tomorrow.
 2024-06-15 04:39:04.583579 - Email sent for today: Akash Aji
 2024-06-15 04:39:04.617998 - Birthday alert for Akash Aji: today.
+2024-06-15 07:00:28.030577 - Email sent for today: Akash Aji
+2024-06-15 07:00:28.067456 - Birthday alert for Akash Aji: today.
