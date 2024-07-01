@@ -497,3 +497,5 @@
 2024-06-30 04:36:51.807111 - No birthdays today or tomorrow.
 2024-06-30 07:00:50.888546 - No birthdays today or tomorrow.
 2024-06-30 18:08:50.857796 - No birthdays today or tomorrow.
+2024-07-01 04:37:27.556005 - Email sent for tomorrow: Francina Joy 
+2024-07-01 04:37:27.593193 - Birthday alert for Francina Joy : tomorrow.
