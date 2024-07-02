@@ -503,3 +503,5 @@
 2024-07-01 07:00:41.127994 - Birthday alert for Francina Joy : tomorrow.
 2024-07-01 18:10:06.369544 - Email sent for tomorrow: Francina Joy 
 2024-07-01 18:10:06.379730 - Birthday alert for Francina Joy : tomorrow.
+2024-07-02 04:38:26.373364 - Email sent for today: Francina Joy 
+2024-07-02 04:38:26.387639 - Birthday alert for Francina Joy : today.
