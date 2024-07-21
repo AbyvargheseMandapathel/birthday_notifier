@@ -566,3 +566,5 @@
 2024-07-20 07:00:51.005274 - Birthday alert for Susmi Elsa Joy: tomorrow.
 2024-07-20 18:09:43.866570 - Email sent for tomorrow: Susmi Elsa Joy
 2024-07-20 18:09:43.876590 - Birthday alert for Susmi Elsa Joy: tomorrow.
+2024-07-21 04:36:57.761981 - Email sent for today: Susmi Elsa Joy
+2024-07-21 04:36:57.801882 - Birthday alert for Susmi Elsa Joy: today.
