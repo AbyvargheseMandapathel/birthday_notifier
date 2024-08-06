@@ -619,3 +619,5 @@
 2024-08-05 18:10:59.500244 - No birthdays today or tomorrow.
 2024-08-06 04:39:40.216836 - Email sent for tomorrow: Athira Sabu
 2024-08-06 04:39:40.250662 - Birthday alert for Athira Sabu: tomorrow.
+2024-08-06 07:00:41.686314 - Email sent for tomorrow: Athira Sabu
+2024-08-06 07:00:41.695435 - Birthday alert for Athira Sabu: tomorrow.
