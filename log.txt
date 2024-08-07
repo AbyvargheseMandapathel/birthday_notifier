@@ -623,3 +623,5 @@
 2024-08-06 07:00:41.695435 - Birthday alert for Athira Sabu: tomorrow.
 2024-08-06 18:11:42.900816 - Email sent for tomorrow: Athira Sabu
 2024-08-06 18:11:42.941312 - Birthday alert for Athira Sabu: tomorrow.
+2024-08-07 04:39:14.671887 - Email sent for today: Athira Sabu
+2024-08-07 04:39:14.715978 - Birthday alert for Athira Sabu: today.
