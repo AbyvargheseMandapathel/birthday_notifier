@@ -643,3 +643,5 @@
 2024-08-11 18:11:03.835369 - No birthdays today or tomorrow.
 2024-08-12 04:38:26.652036 - Email sent for tomorrow: Akshaya K.S
 2024-08-12 04:38:26.665675 - Birthday alert for Akshaya K.S: tomorrow.
+2024-08-12 07:00:48.099455 - Email sent for tomorrow: Akshaya K.S
+2024-08-12 07:00:48.113117 - Birthday alert for Akshaya K.S: tomorrow.
