@@ -647,3 +647,5 @@
 2024-08-12 07:00:48.113117 - Birthday alert for Akshaya K.S: tomorrow.
 2024-08-12 18:11:27.078879 - Email sent for tomorrow: Akshaya K.S
 2024-08-12 18:11:27.121368 - Birthday alert for Akshaya K.S: tomorrow.
+2024-08-13 04:38:20.903258 - Email sent for today: Akshaya K.S
+2024-08-13 04:38:20.943104 - Birthday alert for Akshaya K.S: today.
