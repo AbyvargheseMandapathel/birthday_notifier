@@ -664,3 +664,5 @@
 2024-08-15 18:11:00.486292 - Birthday alert for Nandhu Gopan: tomorrow.
 2024-08-16 04:38:04.505746 - Email sent for today: Nandhu Gopan
 2024-08-16 04:38:04.516465 - Birthday alert for Nandhu Gopan: today.
+2024-08-16 07:00:52.552382 - Email sent for today: Nandhu Gopan
+2024-08-16 07:00:52.589239 - Birthday alert for Nandhu Gopan: today.
