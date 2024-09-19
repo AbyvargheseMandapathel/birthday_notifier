@@ -773,3 +773,5 @@
 2024-09-18 04:40:56.553393 - No birthdays today or tomorrow.
 2024-09-18 07:00:44.299329 - No birthdays today or tomorrow.
 2024-09-18 18:11:00.353661 - No birthdays today or tomorrow.
+2024-09-19 04:41:25.224330 - Email sent for tomorrow: Aparna Santhosh 
+2024-09-19 04:41:25.243407 - Birthday alert for Aparna Santhosh : tomorrow.
