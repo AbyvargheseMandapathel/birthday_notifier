@@ -783,3 +783,5 @@
 2024-09-20 04:40:42.561286 - Birthday alert for Aparna Santhosh : today.
 2024-09-20 07:00:55.092172 - Email sent for today: Aparna Santhosh 
 2024-09-20 07:00:55.135889 - Birthday alert for Aparna Santhosh : today.
+2024-09-20 18:11:24.202492 - Email sent for today: Aparna Santhosh 
+2024-09-20 18:11:24.218809 - Birthday alert for Aparna Santhosh : today.
