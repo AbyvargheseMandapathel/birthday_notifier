@@ -836,3 +836,5 @@
 2024-10-04 07:00:28.777844 - Birthday alert for Sreelekshmi V: tomorrow.
 2024-10-04 18:11:20.889904 - Email sent for tomorrow: Sreelekshmi V
 2024-10-04 18:11:20.933850 - Birthday alert for Sreelekshmi V: tomorrow.
+2024-10-05 04:40:58.218850 - Email sent for today: Sreelekshmi V
+2024-10-05 04:40:58.232903 - Birthday alert for Sreelekshmi V: today.
