@@ -866,3 +866,7 @@
 2024-10-17 04:42:38.499801 - No birthdays today or tomorrow.
 2024-10-17 07:00:54.966722 - No birthdays today or tomorrow.
 2024-10-17 18:10:39.330499 - No birthdays today or tomorrow.
+2024-10-18 04:42:59.513412 - Email sent for tomorrow: Harikrishnan H
+2024-10-18 04:42:59.553324 - Birthday alert for Harikrishnan H: tomorrow.
+2024-10-18 04:43:00.875835 - Email sent for tomorrow: Panchami S
+2024-10-18 04:43:00.917065 - Birthday alert for Panchami S: tomorrow.
