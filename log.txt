@@ -878,3 +878,7 @@
 2024-10-18 18:11:43.960641 - Birthday alert for Harikrishnan H: tomorrow.
 2024-10-18 18:11:44.891393 - Email sent for tomorrow: Panchami S
 2024-10-18 18:11:44.905288 - Birthday alert for Panchami S: tomorrow.
+2024-10-19 04:40:18.884920 - Email sent for today: Harikrishnan H
+2024-10-19 04:40:18.923642 - Birthday alert for Harikrishnan H: today.
+2024-10-19 04:40:20.204096 - Email sent for today: Panchami S
+2024-10-19 04:40:20.248755 - Birthday alert for Panchami S: today.
