@@ -1017,3 +1017,5 @@
 2024-11-28 04:44:17.545553 - Birthday alert for Akshara Santhosh : tomorrow.
 2024-11-28 07:00:44.930100 - Email sent for tomorrow: Akshara Santhosh 
 2024-11-28 07:00:44.943930 - Birthday alert for Akshara Santhosh : tomorrow.
+2024-11-28 18:12:05.336391 - Email sent for tomorrow: Akshara Santhosh 
+2024-11-28 18:12:05.350778 - Birthday alert for Akshara Santhosh : tomorrow.
