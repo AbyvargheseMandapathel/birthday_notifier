@@ -1031,3 +1031,5 @@
 2024-11-30 07:00:36.263932 - Birthday alert for Ardra Haridas: tomorrow.
 2024-11-30 18:11:06.032802 - Email sent for tomorrow: Ardra Haridas
 2024-11-30 18:11:06.047563 - Birthday alert for Ardra Haridas: tomorrow.
+2024-12-01 04:44:04.123189 - Email sent for today: Ardra Haridas
+2024-12-01 04:44:04.160038 - Birthday alert for Ardra Haridas: today.
