@@ -1044,3 +1044,5 @@
 2024-12-03 04:44:03.447768 - Birthday alert for Aby Varghese: tomorrow.
 2024-12-03 07:00:36.732020 - Email sent for tomorrow: Aby Varghese
 2024-12-03 07:00:36.742556 - Birthday alert for Aby Varghese: tomorrow.
+2024-12-03 18:11:27.293226 - Email sent for tomorrow: Aby Varghese
+2024-12-03 18:11:27.335432 - Birthday alert for Aby Varghese: tomorrow.
