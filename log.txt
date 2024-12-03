@@ -1040,3 +1040,5 @@
 2024-12-02 04:44:00.680250 - No birthdays today or tomorrow.
 2024-12-02 07:00:46.356906 - No birthdays today or tomorrow.
 2024-12-02 18:12:41.332767 - No birthdays today or tomorrow.
+2024-12-03 04:44:03.402960 - Email sent for tomorrow: Aby Varghese
+2024-12-03 04:44:03.447768 - Birthday alert for Aby Varghese: tomorrow.
