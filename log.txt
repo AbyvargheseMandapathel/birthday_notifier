@@ -1052,3 +1052,5 @@
 2024-12-04 07:00:43.961032 - Birthday alert for Aby Varghese: today.
 2024-12-04 18:13:05.654774 - Email sent for today: Aby Varghese
 2024-12-04 18:13:05.687825 - Birthday alert for Aby Varghese: today.
+2024-12-05 04:43:33.325786 - Email sent for tomorrow: Aleena Jomon
+2024-12-05 04:43:33.339581 - Birthday alert for Aleena Jomon: tomorrow.
