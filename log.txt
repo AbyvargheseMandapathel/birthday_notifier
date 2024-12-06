@@ -1062,3 +1062,7 @@
 2024-12-06 04:43:44.761480 - Birthday alert for Aleena Jomon: today.
 2024-12-06 04:43:46.108947 - Email sent for tomorrow: Drisik
 2024-12-06 04:43:46.151315 - Birthday alert for Drisik: tomorrow.
+2024-12-06 07:00:33.205874 - Email sent for today: Aleena Jomon
+2024-12-06 07:00:33.246534 - Birthday alert for Aleena Jomon: today.
+2024-12-06 07:00:34.704979 - Email sent for tomorrow: Drisik
+2024-12-06 07:00:34.744327 - Birthday alert for Drisik: tomorrow.
