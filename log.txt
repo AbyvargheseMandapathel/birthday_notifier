@@ -1346,3 +1346,5 @@
 2025-03-02 07:00:33.003431 - Birthday alert for Sarath P O: tomorrow.
 2025-03-02 18:11:03.136518 - Email sent for tomorrow: Sarath P O
 2025-03-02 18:11:03.170095 - Birthday alert for Sarath P O: tomorrow.
+2025-03-03 04:42:17.148394 - Email sent for today: Sarath P O
+2025-03-03 04:42:17.189532 - Birthday alert for Sarath P O: today.
