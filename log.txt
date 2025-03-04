@@ -1352,3 +1352,7 @@
 2025-03-03 07:00:40.067972 - Birthday alert for Sarath P O: today.
 2025-03-03 18:12:04.714844 - Email sent for today: Sarath P O
 2025-03-03 18:12:04.724577 - Birthday alert for Sarath P O: today.
+2025-03-04 04:42:27.271624 - Email sent for tomorrow: Naveen V
+2025-03-04 04:42:27.280684 - Birthday alert for Naveen V: tomorrow.
+2025-03-04 04:42:29.210559 - Email sent for tomorrow: SHINU C M
+2025-03-04 04:42:29.219787 - Birthday alert for SHINU C M: tomorrow.
