@@ -1372,3 +1372,7 @@
 2025-03-05 07:00:24.776530 - Birthday alert for Naveen V: today.
 2025-03-05 07:00:26.929581 - Email sent for today: SHINU C M
 2025-03-05 07:00:26.943459 - Birthday alert for SHINU C M: today.
+2025-03-05 18:13:11.536322 - Email sent for today: Naveen V
+2025-03-05 18:13:11.550475 - Birthday alert for Naveen V: today.
+2025-03-05 18:13:12.495118 - Email sent for today: SHINU C M
+2025-03-05 18:13:12.508773 - Birthday alert for SHINU C M: today.
