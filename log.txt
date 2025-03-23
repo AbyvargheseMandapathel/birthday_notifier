@@ -1430,3 +1430,5 @@
 2025-03-22 07:00:42.394279 - Birthday alert for Albin Johnson: tomorrow.
 2025-03-22 18:11:16.953121 - Email sent for tomorrow: Albin Johnson
 2025-03-22 18:11:16.989758 - Birthday alert for Albin Johnson: tomorrow.
+2025-03-23 04:40:24.349115 - Email sent for today: Albin Johnson
+2025-03-23 04:40:24.362920 - Birthday alert for Albin Johnson: today.
