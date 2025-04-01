@@ -1462,3 +1462,5 @@
 2025-03-31 18:13:11.255417 - No birthdays today or tomorrow.
 2025-04-01 04:43:54.276137 - Email sent for tomorrow: Sandhu Babu
 2025-04-01 04:43:54.285625 - Birthday alert for Sandhu Babu: tomorrow.
+2025-04-01 07:08:25.921343 - Email sent for tomorrow: Sandhu Babu
+2025-04-01 07:08:25.935787 - Birthday alert for Sandhu Babu: tomorrow.
