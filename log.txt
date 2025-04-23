@@ -1546,3 +1546,5 @@
 2025-04-22 18:13:08.506306 - Birthday alert for Jinsu Mariam Jacob: today.
 2025-04-23 04:45:45.500236 - Email sent for tomorrow: Athul Krishna
 2025-04-23 04:45:45.514428 - Birthday alert for Athul Krishna: tomorrow.
+2025-04-23 07:00:28.949778 - Email sent for tomorrow: Athul Krishna
+2025-04-23 07:00:28.986673 - Birthday alert for Athul Krishna: tomorrow.
