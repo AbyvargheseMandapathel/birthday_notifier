@@ -1559,3 +1559,5 @@
 2025-04-25 04:44:22.149253 - No birthdays today or tomorrow.
 2025-04-25 07:00:26.541123 - No birthdays today or tomorrow.
 2025-04-25 18:13:37.570179 - No birthdays today or tomorrow.
+2025-04-26 04:42:43.899622 - Email sent for tomorrow: Shalini Mani
+2025-04-26 04:42:43.913774 - Birthday alert for Shalini Mani: tomorrow.
