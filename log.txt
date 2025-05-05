@@ -1592,3 +1592,5 @@
 2025-05-04 04:43:49.799766 - No birthdays today or tomorrow.
 2025-05-04 07:00:45.536875 - No birthdays today or tomorrow.
 2025-05-04 18:11:51.309063 - No birthdays today or tomorrow.
+2025-05-05 04:44:56.359868 - Email sent for tomorrow: Nandhana A Regi
+2025-05-05 04:44:56.400395 - Birthday alert for Nandhana A Regi: tomorrow.
