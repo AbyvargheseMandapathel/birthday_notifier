@@ -1606,3 +1606,5 @@
 2025-05-06 18:14:00.542254 - Birthday alert for Nandhana A Regi: today.
 2025-05-07 04:44:18.819779 - Email sent for tomorrow: Sreejith S
 2025-05-07 04:44:18.830966 - Birthday alert for Sreejith S: tomorrow.
+2025-05-07 07:00:51.987577 - Email sent for tomorrow: Sreejith S
+2025-05-07 07:00:52.026116 - Birthday alert for Sreejith S: tomorrow.
