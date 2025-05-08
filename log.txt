@@ -1610,3 +1610,5 @@
 2025-05-07 07:00:52.026116 - Birthday alert for Sreejith S: tomorrow.
 2025-05-07 18:14:20.925034 - Email sent for tomorrow: Sreejith S
 2025-05-07 18:14:20.966867 - Birthday alert for Sreejith S: tomorrow.
+2025-05-08 04:45:11.081374 - Email sent for today: Sreejith S
+2025-05-08 04:45:11.096598 - Birthday alert for Sreejith S: today.
