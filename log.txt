@@ -1616,3 +1616,5 @@
 2025-05-08 07:00:32.484494 - Birthday alert for Sreejith S: today.
 2025-05-08 18:13:50.131399 - Email sent for today: Sreejith S
 2025-05-08 18:13:50.146083 - Birthday alert for Sreejith S: today.
+2025-05-09 04:44:44.527303 - Email sent for tomorrow: Rions Reji
+2025-05-09 04:44:44.559923 - Birthday alert for Rions Reji: tomorrow.
