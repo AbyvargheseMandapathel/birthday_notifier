@@ -1622,3 +1622,5 @@
 2025-05-09 07:00:20.716352 - Birthday alert for Rions Reji: tomorrow.
 2025-05-09 18:13:25.981722 - Email sent for tomorrow: Rions Reji
 2025-05-09 18:13:26.018708 - Birthday alert for Rions Reji: tomorrow.
+2025-05-10 04:43:56.494528 - Email sent for today: Rions Reji
+2025-05-10 04:43:56.508545 - Birthday alert for Rions Reji: today.
