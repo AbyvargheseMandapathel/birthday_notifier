@@ -1640,3 +1640,5 @@
 2025-05-12 07:00:46.737444 - Birthday alert for Archana P G: today.
 2025-05-12 18:13:49.429534 - Email sent for today: Archana P G
 2025-05-12 18:13:49.469182 - Birthday alert for Archana P G: today.
+2025-05-13 04:44:57.221837 - Email sent for tomorrow: S Jayakrishnan
+2025-05-13 04:44:57.257856 - Birthday alert for S Jayakrishnan: tomorrow.
