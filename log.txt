@@ -1658,3 +1658,5 @@
 2025-05-16 04:45:16.739292 - No birthdays today or tomorrow.
 2025-05-16 07:00:33.263888 - No birthdays today or tomorrow.
 2025-05-16 18:13:38.231144 - No birthdays today or tomorrow.
+2025-05-17 04:43:09.975518 - Email sent for tomorrow: Jesna Joy
+2025-05-17 04:43:10.014688 - Birthday alert for Jesna Joy: tomorrow.
