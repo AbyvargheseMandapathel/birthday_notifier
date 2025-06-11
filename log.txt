@@ -1758,3 +1758,5 @@
 2025-06-10 18:14:06.103509 - No birthdays today or tomorrow.
 2025-06-11 04:49:29.587665 - Email sent for tomorrow: William Reji 
 2025-06-11 04:49:29.597278 - Birthday alert for William Reji : tomorrow.
+2025-06-11 07:00:40.411092 - Email sent for tomorrow: William Reji 
+2025-06-11 07:00:40.425223 - Birthday alert for William Reji : tomorrow.
