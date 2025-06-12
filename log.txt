@@ -1762,3 +1762,5 @@
 2025-06-11 07:00:40.425223 - Birthday alert for William Reji : tomorrow.
 2025-06-11 18:14:33.300563 - Email sent for tomorrow: William Reji 
 2025-06-11 18:14:33.339515 - Birthday alert for William Reji : tomorrow.
+2025-06-12 04:47:50.670593 - Email sent for today: William Reji 
+2025-06-12 04:47:50.684782 - Birthday alert for William Reji : today.
