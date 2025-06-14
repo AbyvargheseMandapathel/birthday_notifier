@@ -1773,3 +1773,5 @@
 2025-06-13 18:13:46.567240 - No birthdays today or tomorrow.
 2025-06-14 04:46:53.025395 - Email sent for tomorrow: Akash Aji
 2025-06-14 04:46:53.066491 - Birthday alert for Akash Aji: tomorrow.
+2025-06-14 07:00:42.283164 - Email sent for tomorrow: Akash Aji
+2025-06-14 07:00:42.322122 - Birthday alert for Akash Aji: tomorrow.
