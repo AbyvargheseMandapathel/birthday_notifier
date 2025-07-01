@@ -1836,3 +1836,5 @@
 2025-06-30 18:14:14.381791 - No birthdays today or tomorrow.
 2025-07-01 04:55:41.611243 - Email sent for tomorrow: Francina Joy 
 2025-07-01 04:55:41.622081 - Birthday alert for Francina Joy : tomorrow.
+2025-07-01 07:10:27.340111 - Email sent for tomorrow: Francina Joy 
+2025-07-01 07:10:27.372981 - Birthday alert for Francina Joy : tomorrow.
