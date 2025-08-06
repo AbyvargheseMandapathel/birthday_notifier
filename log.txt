@@ -1954,3 +1954,5 @@
 2025-08-05 05:03:03.081290 - No birthdays today or tomorrow.
 2025-08-05 07:15:44.843449 - No birthdays today or tomorrow.
 2025-08-05 18:17:05.099137 - No birthdays today or tomorrow.
+2025-08-06 05:02:23.136989 - Email sent for tomorrow: Athira Sabu
+2025-08-06 05:02:23.165347 - Birthday alert for Athira Sabu: tomorrow.
