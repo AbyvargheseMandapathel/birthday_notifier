@@ -1964,3 +1964,5 @@
 2025-08-07 05:01:52.288111 - Birthday alert for Athira Sabu: today.
 2025-08-07 07:15:10.955707 - Email sent for today: Athira Sabu
 2025-08-07 07:15:10.966069 - Birthday alert for Athira Sabu: today.
+2025-08-07 18:16:19.188362 - Email sent for today: Athira Sabu
+2025-08-07 18:16:19.214328 - Birthday alert for Athira Sabu: today.
