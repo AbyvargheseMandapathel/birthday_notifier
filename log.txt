@@ -1978,3 +1978,5 @@
 2025-08-11 05:00:41.343579 - No birthdays today or tomorrow.
 2025-08-11 07:14:57.871744 - No birthdays today or tomorrow.
 2025-08-11 18:15:36.347124 - No birthdays today or tomorrow.
+2025-08-12 04:48:39.803043 - Email sent for tomorrow: Akshaya K.S
+2025-08-12 04:48:39.813441 - Birthday alert for Akshaya K.S: tomorrow.
