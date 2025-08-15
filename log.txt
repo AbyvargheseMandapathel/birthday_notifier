@@ -1993,3 +1993,5 @@
 2025-08-14 04:50:58.496342 - No birthdays today or tomorrow.
 2025-08-14 07:11:04.382004 - No birthdays today or tomorrow.
 2025-08-14 18:14:57.636944 - No birthdays today or tomorrow.
+2025-08-15 04:51:03.311525 - Email sent for tomorrow: Nandhu Gopan
+2025-08-15 04:51:03.349125 - Birthday alert for Nandhu Gopan: tomorrow.
