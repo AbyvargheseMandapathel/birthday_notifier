@@ -2038,3 +2038,4 @@
 2025-08-25 07:09:34.825641 - Birthday alert for Gayathri J: today.
 2025-08-25 18:14:56.146715 - Email sent for today: Gayathri J
 2025-08-25 18:14:56.172515 - Birthday alert for Gayathri J: today.
+2025-08-26 04:43:56.178530 - No birthdays today or tomorrow.
