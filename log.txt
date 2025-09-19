@@ -2110,3 +2110,5 @@
 2025-09-18 04:41:31.974864 - No birthdays today or tomorrow.
 2025-09-18 07:00:41.105255 - No birthdays today or tomorrow.
 2025-09-18 18:14:15.297589 - No birthdays today or tomorrow.
+2025-09-19 04:41:22.168107 - Email sent for tomorrow: Aparna Santhosh 
+2025-09-19 04:41:22.181862 - Birthday alert for Aparna Santhosh : tomorrow.
