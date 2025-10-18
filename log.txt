@@ -2215,3 +2215,7 @@
 2025-10-17 04:42:17.872651 - No birthdays today or tomorrow.
 2025-10-17 07:00:44.340127 - No birthdays today or tomorrow.
 2025-10-17 18:12:08.978075 - No birthdays today or tomorrow.
+2025-10-18 04:40:14.639824 - Email sent for tomorrow: Harikrishnan H
+2025-10-18 04:40:14.677783 - Birthday alert for Harikrishnan H: tomorrow.
+2025-10-18 04:40:15.544199 - Email sent for tomorrow: Panchami S
+2025-10-18 04:40:15.554367 - Birthday alert for Panchami S: tomorrow.
