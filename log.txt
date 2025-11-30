@@ -2376,3 +2376,5 @@
 2025-11-29 18:14:02.802096 - Birthday alert for Akshara Santhosh : today.
 2025-11-30 04:52:05.574300 - Email sent for tomorrow: Ardra Haridas
 2025-11-30 04:52:05.586166 - Birthday alert for Ardra Haridas: tomorrow.
+2025-11-30 07:00:25.044978 - Email sent for tomorrow: Ardra Haridas
+2025-11-30 07:00:25.055474 - Birthday alert for Ardra Haridas: tomorrow.
