@@ -2389,3 +2389,5 @@
 2025-12-02 04:50:04.758344 - No birthdays today or tomorrow.
 2025-12-02 07:11:41.252817 - No birthdays today or tomorrow.
 2025-12-02 18:17:08.924947 - No birthdays today or tomorrow.
+2025-12-03 04:48:08.463446 - Email sent for tomorrow: Aby Varghese
+2025-12-03 04:48:08.488908 - Birthday alert for Aby Varghese: tomorrow.
