@@ -2403,3 +2403,5 @@
 2025-12-04 18:17:08.874899 - Birthday alert for Aby Varghese: today.
 2025-12-05 04:48:47.076696 - Email sent for tomorrow: Aleena Jomon
 2025-12-05 04:48:47.110266 - Birthday alert for Aleena Jomon: tomorrow.
+2025-12-05 07:11:30.416079 - Email sent for tomorrow: Aleena Jomon
+2025-12-05 07:11:30.470655 - Birthday alert for Aleena Jomon: tomorrow.
