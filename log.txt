@@ -2701,3 +2701,7 @@
 2026-03-03 07:32:37.911268 - Birthday alert for Sarath P O: today.
 2026-03-03 18:33:21.216950 - Email sent for today: Sarath P O
 2026-03-03 18:33:21.253282 - Birthday alert for Sarath P O: today.
+2026-03-04 05:28:36.984617 - Email sent for tomorrow: Naveen V
+2026-03-04 05:28:36.994613 - Birthday alert for Naveen V: tomorrow.
+2026-03-04 05:28:38.460510 - Email sent for tomorrow: SHINU C M
+2026-03-04 05:28:38.470815 - Birthday alert for SHINU C M: tomorrow.
