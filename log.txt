@@ -2809,3 +2809,5 @@
 2026-03-31 06:00:08.408415 - No birthdays today or tomorrow.
 2026-03-31 07:58:07.058128 - No birthdays today or tomorrow.
 2026-03-31 18:43:56.344528 - No birthdays today or tomorrow.
+2026-04-01 06:10:18.733963 - Email sent for tomorrow: Sandhu Babu
+2026-04-01 06:10:18.743770 - Birthday alert for Sandhu Babu: tomorrow.
