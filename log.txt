@@ -2908,3 +2908,5 @@
 2026-04-25 06:05:40.487184 - No birthdays today or tomorrow.
 2026-04-25 07:56:35.842294 - No birthdays today or tomorrow.
 2026-04-25 18:34:05.673489 - No birthdays today or tomorrow.
+2026-04-26 06:23:16.727197 - Email sent for tomorrow: Shalini Mani
+2026-04-26 06:23:16.740809 - Birthday alert for Shalini Mani: tomorrow.
