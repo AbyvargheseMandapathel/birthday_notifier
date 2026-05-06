@@ -2947,3 +2947,5 @@
 2026-05-05 09:01:57.483909 - Birthday alert for Nandhana A Regi: tomorrow.
 2026-05-05 19:02:33.466641 - Email sent for tomorrow: Nandhana A Regi
 2026-05-05 19:02:33.476874 - Birthday alert for Nandhana A Regi: tomorrow.
+2026-05-06 07:14:50.988206 - Email sent for today: Nandhana A Regi
+2026-05-06 07:14:51.021434 - Birthday alert for Nandhana A Regi: today.
