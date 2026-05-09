@@ -4,7 +4,7 @@ from .models import CustomUser
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
-        fields = ('id', 'email', 'username', 'timezone')
+        fields = ('id', 'email', 'username', 'timezone', 'reminder_days_before', 'reminder_time', 'is_smart_reminders_enabled', 'streak_count', 'total_wishes_sent')
 
 class RegisterSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)

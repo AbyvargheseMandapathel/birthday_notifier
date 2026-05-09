@@ -48,27 +48,27 @@ export default function PeoplePage() {
     switch (rel?.toLowerCase()) {
       case 'family': return <Heart size={14} className="text-pink-500" />;
       case 'work': return <Briefcase size={14} className="text-blue-500" />;
-      default: return <User size={14} className="text-slate-400" />;
+      default: return <User size={14} className="text-zinc-400" />;
     }
   };
 
   if (authLoading || loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-slate-50">
+      <div className="min-h-screen flex items-center justify-center bg-zinc-50">
         <Loader2 className="animate-spin text-indigo-500" size={48} />
       </div>
     );
   }
 
   return (
-    <div className="flex min-h-screen bg-slate-50/50">
+    <div className="flex min-h-screen bg-zinc-50/50">
       <Sidebar />
 
       <main className="flex-1 p-8">
         <header className="flex justify-between items-end mb-10">
           <div>
-            <h1 className="text-3xl font-bold text-slate-900 tracking-tight">People</h1>
-            <p className="text-slate-500 text-sm mt-1">All the important people in your life.</p>
+            <h1 className="text-3xl font-bold text-zinc-900 tracking-tight">People</h1>
+            <p className="text-zinc-500 text-sm mt-1">All the important people in your life.</p>
           </div>
           
           <div className="flex items-center gap-3">
@@ -89,35 +89,35 @@ export default function PeoplePage() {
                 { label: 'Family Members', value: '8', icon: User, color: 'amber' },
                 { label: 'Friends', value: '15', icon: UsersIcon, color: 'emerald' },
             ].map((stat, i) => (
-                <div key={i} className="bg-white p-6 rounded-[2rem] border border-slate-50 shadow-sm flex items-center gap-4">
+                <div key={i} className="bg-white p-6 rounded-[2rem] border border-zinc-50 shadow-sm flex items-center gap-4">
                     <div className={`w-12 h-12 bg-${stat.color}-50 rounded-2xl flex items-center justify-center text-${stat.color}-600`}>
                         <stat.icon size={22} />
                     </div>
                     <div>
-                        <p className="text-2xl font-bold text-slate-900">{stat.value}</p>
-                        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">{stat.label}</p>
+                        <p className="text-2xl font-bold text-zinc-900">{stat.value}</p>
+                        <p className="text-[10px] font-bold text-zinc-400 uppercase tracking-wider">{stat.label}</p>
                     </div>
                 </div>
             ))}
         </div>
 
-        <div className="bg-white rounded-[2.5rem] border border-slate-100 shadow-sm overflow-hidden">
-            <div className="p-6 border-b border-slate-50 flex justify-between items-center bg-slate-50/30">
+        <div className="bg-white rounded-[2.5rem] border border-zinc-100 shadow-sm overflow-hidden">
+            <div className="p-6 border-b border-zinc-50 flex justify-between items-center bg-zinc-50/30">
                 <div className="relative w-96">
-                    <Search className="absolute left-3 top-2.5 text-slate-400" size={18} />
+                    <Search className="absolute left-3 top-2.5 text-zinc-400" size={18} />
                     <input 
                         type="text" 
                         placeholder="Search people..." 
-                        className="w-full bg-white border border-slate-200 rounded-xl pl-10 pr-4 py-2 text-sm focus:outline-none focus:ring-4 focus:ring-indigo-500/10 transition-all"
+                        className="w-full bg-white border border-zinc-200 rounded-xl pl-10 pr-4 py-2 text-sm focus:outline-none focus:ring-4 focus:ring-indigo-500/10 transition-all"
                         value={search}
                         onChange={(e) => setSearch(e.target.value)}
                     />
                 </div>
                 <div className="flex items-center gap-3">
-                    <button className="flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded-xl text-xs font-bold text-slate-600 hover:bg-slate-50 transition-all">
+                    <button className="flex items-center gap-2 px-4 py-2 bg-white border border-zinc-200 rounded-xl text-xs font-bold text-zinc-600 hover:bg-zinc-50 transition-all">
                         All Relationships <ChevronDown size={14} />
                     </button>
-                    <button className="flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded-xl text-xs font-bold text-slate-600 hover:bg-slate-50 transition-all">
+                    <button className="flex items-center gap-2 px-4 py-2 bg-white border border-zinc-200 rounded-xl text-xs font-bold text-zinc-600 hover:bg-zinc-50 transition-all">
                         <Filter size={14} /> More Filters
                     </button>
                 </div>
@@ -125,7 +125,7 @@ export default function PeoplePage() {
 
             <table className="w-full text-left">
                 <thead>
-                    <tr className="text-[10px] font-bold text-slate-400 uppercase tracking-widest border-b border-slate-50">
+                    <tr className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest border-b border-zinc-50">
                         <th className="px-8 py-4">Name</th>
                         <th className="px-8 py-4">Birthday</th>
                         <th className="px-8 py-4">Relationship</th>
@@ -133,25 +133,25 @@ export default function PeoplePage() {
                         <th className="px-8 py-4">Actions</th>
                     </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-50">
+                <tbody className="divide-y divide-zinc-50">
                     {people.map((person) => (
-                        <tr key={person.id} className="hover:bg-slate-50/50 transition-colors group">
+                        <tr key={person.id} className="hover:bg-zinc-50/50 transition-colors group">
                             <td className="px-8 py-5">
                                 <div className="flex items-center gap-3">
-                                    <div className="w-10 h-10 bg-slate-100 rounded-xl flex items-center justify-center text-slate-400 font-bold text-sm">
+                                    <div className="w-10 h-10 bg-zinc-100 rounded-xl flex items-center justify-center text-zinc-400 font-bold text-sm">
                                         {person.friend_name[0]}
                                     </div>
                                     <div>
-                                        <p className="font-bold text-slate-900">{person.friend_name}</p>
-                                        <p className="text-[10px] text-slate-400">{person.contact_email || 'No email'}</p>
+                                        <p className="font-bold text-zinc-900">{person.friend_name}</p>
+                                        <p className="text-[10px] text-zinc-400">{person.contact_email || 'No email'}</p>
                                     </div>
                                 </div>
                             </td>
-                            <td className="px-8 py-5 text-sm text-slate-600">
+                            <td className="px-8 py-5 text-sm text-zinc-600">
                                 {new Date(2000, person.month - 1).toLocaleString('en-US', { month: 'short' })} {person.day}
                             </td>
                             <td className="px-8 py-5">
-                                <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-slate-50 text-slate-600 rounded-full text-[10px] font-bold border border-slate-100">
+                                <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-zinc-50 text-zinc-600 rounded-full text-[10px] font-bold border border-zinc-100">
                                     {getRelationshipIcon('friend')} Friend
                                 </span>
                             </td>
@@ -162,10 +162,10 @@ export default function PeoplePage() {
                             </td>
                             <td className="px-8 py-5">
                                 <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                                    <button className="p-2 text-slate-400 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg transition-all">
+                                    <button className="p-2 text-zinc-400 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg transition-all">
                                         <Edit2 size={16} />
                                     </button>
-                                    <button className="p-2 text-slate-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-all">
+                                    <button className="p-2 text-zinc-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-all">
                                         <Trash2 size={16} />
                                     </button>
                                 </div>
@@ -176,7 +176,7 @@ export default function PeoplePage() {
             </table>
 
             {people.length === 0 && (
-                <div className="py-20 text-center text-slate-400">
+                <div className="py-20 text-center text-zinc-400">
                     <UsersIcon size={48} className="mx-auto mb-4 opacity-20" />
                     <p className="font-medium">No people found yet.</p>
                 </div>

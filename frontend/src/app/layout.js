@@ -9,7 +9,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`font-sans bg-slate-50 text-slate-900 antialiased`}>
+      <body className={`font-sans bg-zinc-50 text-zinc-900 antialiased`}>
         <AuthProvider>
           {children}
         </AuthProvider>

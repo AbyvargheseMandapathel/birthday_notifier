@@ -5,240 +5,330 @@ import { birthdayService } from '@/services/birthday';
 import Sidebar from '@/components/Sidebar';
 import DashboardHeader from '@/components/DashboardHeader';
 import CalendarCard from '@/components/CalendarCard';
-import { Card, StatCard, Button } from '@/components/UI';
+import { Card, StatCard, Button, Avatar, AvatarGroup } from '@/components/UI';
 import { 
-  Cake, 
-  Plus, 
-  Bell, 
-  Loader2, 
-  X, 
-  ChevronRight,
-  TrendingUp,
-  CheckCircle2,
-  Clock,
-  ChevronLeft,
-  Send,
-  Gift
+ Cake, 
+ Plus, 
+ Bell, 
+ Loader2, 
+ X, 
+ ChevronRight,
+ TrendingUp,
+ CheckCircle2,
+ Clock,
+ ChevronLeft,
+ Send,
+ Gift
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import SmartReminderModal from '@/components/SmartReminderModal';
 
 export default function Dashboard() {
-  const { user, loading: authLoading } = useAuth();
-  const [upcoming, setUpcoming] = useState([]);
-  const [stats, setStats] = useState({ total: 0, thisMonth: 0, upcoming30: 0, reminders: 8 });
-  const [loading, setLoading] = useState(true);
-  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
-  const [search, setSearch] = useState('');
-  
-  // Form state
-  const [form, setForm] = useState({ friendName: '', day: '', month: '', year: '', includeYear: true, notes: '', email: '' });
-  const [formLoading, setFormLoading] = useState(false);
+ const { user, loading: authLoading } = useAuth();
+ const [upcoming, setUpcoming] = useState([]);
+ const [stats, setStats] = useState({ total: 0, thisMonth: 0, upcoming30: 0, reminders: 8 });
+ const [loading, setLoading] = useState(true);
+ const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+ const [isSettingsModalOpen, setIsSettingsModalOpen] = useState(false);
+ const [search, setSearch] = useState('');
+ const [highlightedId, setHighlightedId] = useState(null);
+ 
+ // Form state
+ const [form, setForm] = useState({ friendName: '', day: '', month: '', year: '', includeYear: true, notes: '', email: '' });
+ const [formLoading, setFormLoading] = useState(false);
 
-  useEffect(() => {
-    if (user) fetchData();
-  }, [user]);
+ useEffect(() => {
+ if (user) fetchData();
+ }, [user]);
 
-  const fetchData = async () => {
-    setLoading(true);
-    try {
-      const [upcomingData, allData] = await Promise.all([
-        birthdayService.getUpcoming(),
-        birthdayService.getAll()
-      ]);
-      setUpcoming(upcomingData);
+ const fetchData = async () => {
+ setLoading(true);
+ try {
+ const [upcomingData, allData] = await Promise.all([
+ birthdayService.getUpcoming(),
+ birthdayService.getAll()
+ ]);
+ setUpcoming(upcomingData);
+ 
+ const currentMonth = new Date().getMonth() + 1;
+ setStats({
+ total: allData.length,
+ thisMonth: allData.filter(b => b.month === currentMonth).length,
+ upcoming30: upcomingData.length,
+ reminders: 8
+ });
+ } catch (err) {
+ console.error("Failed to fetch birthdays", err);
+ } finally {
+ setLoading(false);
+ }
+ };
+
+ const handleAddBirthday = async (e) => {
+ e.preventDefault();
+ setFormLoading(true);
+ try {
+ await birthdayService.add({
+ friend_name: form.friendName,
+ day: parseInt(form.day),
+ month: parseInt(form.month),
+ year: form.includeYear && form.year ? parseInt(form.year) : null,
+ notes: form.notes,
+ contact_email: form.email
+ });
+ setIsAddModalOpen(false);
+ setForm({ friendName: '', day: '', month: '', year: '', includeYear: true, notes: '', email: '' });
+ fetchData();
+ } catch (err) {
+ console.error("Add failed", err);
+ } finally {
+ setFormLoading(false);
+ }
+ };
+
+ const getMonthName = (m) => new Date(2000, m - 1).toLocaleString('en-US', { month: 'long' });
+
+ const getUrgencyStyles = (days) => {
+ if (days < 1) return 'bg-rose-50 dark:bg-rose-500/10 text-rose-600 dark:text-rose-400 border-rose-100 dark:border-rose-500/20';
+ if (days < 3) return 'bg-amber-50 dark:bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-100 dark:border-amber-500/20';
+ if (days < 7) return 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-100 dark:border-emerald-500/20';
+ return 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border-indigo-100 dark:border-indigo-500/20';
+ };
+
+ const getReminderText = (daysUntil) => {
+ if (!user?.is_smart_reminders_enabled) return null;
+ const reminderDays = user?.reminder_days_before || 0;
+ const daysToReminder = daysUntil - reminderDays;
+ 
+ if (daysToReminder > 0) return `Reminder in ${daysToReminder} day${daysToReminder > 1 ? 's' : ''}`;
+ if (daysToReminder === 0) return `Reminder today at ${user?.reminder_time?.substring(0, 5)}`;
+ return "Reminder already sent";
+ };
+
+ if (authLoading || loading) {
+ return (
+ <div className="min-h-screen flex items-center justify-center bg-zinc-50 dark:bg-zinc-950">
+ <Loader2 className="animate-spin text-indigo-500" size={48} />
+ </div>
+ );
+ }
+
+ return (
+ <div className="flex h-screen bg-[#f8fafc] dark:bg-[#02040a] relative selection:bg-indigo-500/30 text-zinc-900 dark:text-zinc-100 overflow-hidden">
+ {/* Background Glow */}
+ <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-40 dark:opacity-100">
+ <div className="absolute top-[-10%] left-[20%] w-[50%] h-[50%] bg-indigo-600/10 dark:bg-indigo-600/5 rounded-full blur-[140px]" />
+ </div>
+ 
+ <Sidebar />
+
+ <main className="flex-1 p-4 lg:p-6 relative z-10 flex flex-col h-full min-w-0">
+ <DashboardHeader user={user} search={search} setSearch={setSearch} totalContacts={stats.total} onQuickAdd={() => setIsAddModalOpen(true)} />
+
+  <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 flex-1 min-h-0">
+    {/* Left Column - Main Scrollable Content */}
+    <div className="lg:col-span-2 flex flex-col gap-6 overflow-y-auto scrollbar-hide pr-2 pb-6">
       
-      const currentMonth = new Date().getMonth() + 1;
-      setStats({
-        total: allData.length,
-        thisMonth: allData.filter(b => b.month === currentMonth).length,
-        upcoming30: upcomingData.length,
-        reminders: 8
-      });
-    } catch (err) {
-      console.error("Failed to fetch birthdays", err);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const handleAddBirthday = async (e) => {
-    e.preventDefault();
-    setFormLoading(true);
-    try {
-      await birthdayService.add({
-        friend_name: form.friendName,
-        day: parseInt(form.day),
-        month: parseInt(form.month),
-        year: form.includeYear && form.year ? parseInt(form.year) : null,
-        notes: form.notes,
-        contact_email: form.email
-      });
-      setIsAddModalOpen(false);
-      setForm({ friendName: '', day: '', month: '', year: '', includeYear: true, notes: '', email: '' });
-      fetchData();
-    } catch (err) {
-      console.error("Add failed", err);
-    } finally {
-      setFormLoading(false);
-    }
-  };
-
-  const getMonthName = (m) => new Date(2000, m - 1).toLocaleString('en-US', { month: 'long' });
-
-  if (authLoading || loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-slate-50 dark:bg-slate-950">
-        <Loader2 className="animate-spin text-indigo-500" size={48} />
+      {/* Stats Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 shrink-0">
+        <StatCard icon={<Cake className="text-white" size={20} />} isPrimary={true} label="Upcoming" value={stats.upcoming30} sub="Next 30 days" />
+        <StatCard icon={<CheckCircle2 className="text-zinc-500 dark:text-zinc-400" size={20} />} label="Month's Wishes" value={user?.total_wishes_sent || 0} sub="🎉 High five!" />
+        <StatCard icon={<Bell className="text-zinc-500 dark:text-zinc-400" size={20} />} label="Reminders" value={stats.reminders} sub="All automatic" />
+        <StatCard icon={<TrendingUp className="text-zinc-500 dark:text-zinc-400" size={20} />} label="Total Circle" value={stats.total} sub="In your circle" avatars={upcoming} />
       </div>
-    );
-  }
 
-  return (
-    <div className="flex min-h-screen bg-[#f8fafc] dark:bg-[#02040a] relative selection:bg-indigo-500/30">
-      {/* Background Glow */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-40 dark:opacity-100">
-        <div className="absolute top-[-10%] left-[20%] w-[50%] h-[50%] bg-indigo-600/10 dark:bg-indigo-600/5 rounded-full blur-[140px]" />
-      </div>
-      
-      <Sidebar />
-
-      <main className="flex-1 p-8 relative z-10">
-        <DashboardHeader user={user} search={search} setSearch={setSearch} />
-
-        {/* Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-10">
-          <StatCard icon={<Cake className="text-indigo-600" size={24} />} bg="bg-indigo-50 dark:bg-indigo-900/20" label="Upcoming" value={stats.upcoming30} sub="Next 30 days" />
-          <StatCard icon={<CheckCircle2 className="text-emerald-600" size={24} />} bg="bg-emerald-50 dark:bg-emerald-900/20" label="This Month" value={stats.thisMonth} sub="Celebrate together" />
-          <StatCard icon={<Bell className="text-amber-600" size={24} />} bg="bg-amber-50 dark:bg-amber-900/20" label="Reminders" value={stats.reminders} sub="All automatic" />
-          <StatCard icon={<TrendingUp className="text-pink-600" size={24} />} bg="bg-pink-50 dark:bg-pink-900/20" label="Total Circle" value={stats.total} sub="In your circle" />
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-2 space-y-6">
-            <Card title="Upcoming Birthdays" action={<button className="text-indigo-600 text-sm font-bold hover:underline">View all</button>}>
-              <div className="space-y-4">
-                {upcoming.length > 0 ? (
-                  upcoming.slice(0, 5).map((bday) => (
-                    <div key={bday.id} className="flex items-center justify-between p-4 rounded-3xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group">
-                      <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-2xl flex items-center justify-center text-slate-400 font-bold">{bday.friend_name[0]}</div>
-                        <div>
-                          <h4 className="font-bold text-slate-900 dark:text-white">{bday.friend_name}</h4>
-                          <p className="text-xs text-slate-400">{getMonthName(bday.month)} {bday.day} • <span className="text-indigo-500 font-medium">In {bday.days_until} days</span></p>
-                        </div>
-                      </div>
-                      <div className="flex items-center gap-4">
-                        <div className="text-right mr-2">
-                           <p className="text-sm font-bold text-slate-900 dark:text-white">{bday.days_until}</p>
-                           <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">days</p>
-                        </div>
-                        <button className="p-2 bg-indigo-50 dark:bg-indigo-900/20 rounded-xl text-indigo-600 opacity-0 group-hover:opacity-100 transition-all">
-                          <Gift size={18} />
-                        </button>
-                      </div>
-                    </div>
-                  ))
-                ) : (
-                  <div className="text-center py-10 text-slate-400"><p>No upcoming birthdays found.</p></div>
-                )}
-              </div>
-              <button onClick={() => setIsAddModalOpen(true)} className="w-full mt-6 py-4 border-2 border-dashed border-slate-200 dark:border-slate-800 rounded-3xl text-slate-400 font-bold hover:border-indigo-300 hover:text-indigo-500 hover:bg-indigo-50/30 transition-all flex items-center justify-center gap-2">
-                <Plus size={20} /> Add Birthday
-              </button>
-            </Card>
-
-            <div className="bg-indigo-50/50 dark:bg-indigo-900/10 border border-indigo-100/50 dark:border-indigo-800/50 rounded-[2rem] p-6 flex items-center justify-between">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-white dark:bg-slate-800 rounded-2xl flex items-center justify-center shadow-sm text-indigo-600"><Clock size={24} /></div>
-                <div>
-                  <h4 className="font-bold text-slate-900 dark:text-white">Smart Reminders</h4>
-                  <p className="text-xs text-slate-500">We'll remind you 2 days before each birthday at 9:00 AM</p>
-                </div>
-              </div>
-              <Button variant="secondary" className="py-2 px-4 text-xs">Manage</Button>
+      {/* Streak / Habit Card */}
+      <div className="bg-gradient-to-br from-indigo-500 to-violet-600 rounded-[2rem] p-6 text-white shadow-xl relative overflow-hidden shrink-0">
+        <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16 blur-2xl" />
+        <div className="relative z-10 flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center backdrop-blur-md">
+              <TrendingUp size={24} />
+            </div>
+            <div>
+              <h3 className="text-lg font-bold">You're on fire! 🔥</h3>
+              <p className="text-indigo-100 text-sm">{user?.streak_count || 3} wish streak. Keep it going!</p>
             </div>
           </div>
-
-          <div className="space-y-8">
-            <CalendarCard birthdays={upcoming} />
-
-            <div className="bg-gradient-to-br from-slate-900 to-indigo-950 rounded-[2.5rem] p-10 text-white relative overflow-hidden group border border-white/5 shadow-2xl">
-               <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-500/20 rounded-full -mr-16 -mt-16 blur-3xl group-hover:bg-indigo-500/30 transition-all duration-500" />
-               <div className="flex items-center gap-3 mb-4 relative z-10">
-                  <h3 className="text-2xl font-bold">Pro Tip</h3>
-                  <span className="text-2xl">💡</span>
-               </div>
-               <p className="text-sm text-indigo-100/80 leading-relaxed mb-8 relative z-10">
-                 Adding the year of birth helps us calculate age milestones and send personalized greetings.
-               </p>
-               <button className="text-sm font-bold text-white flex items-center gap-2 hover:gap-3 transition-all relative z-10 group">
-                 Learn more 
-                 <ChevronRight size={18} className="text-indigo-400 group-hover:text-white transition-colors" />
-               </button>
-            </div>
+          <div className="text-right">
+            <p className="text-3xl font-bold">{user?.streak_count || 3}</p>
+            <p className="text-[10px] uppercase tracking-widest font-bold opacity-60">Day Streak</p>
           </div>
         </div>
-      </main>
+      </div>
 
-      <AnimatePresence>
-        {isAddModalOpen && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-6">
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setIsAddModalOpen(false)} className="absolute inset-0 bg-slate-900/40 backdrop-blur-sm" />
-            <motion.div initial={{ opacity: 0, scale: 0.9, y: 20 }} animate={{ opacity: 1, scale: 1, y: 0 }} exit={{ opacity: 0, scale: 0.9, y: 20 }} className="bg-white dark:bg-slate-900 w-full max-w-lg p-10 rounded-[3rem] shadow-2xl relative z-10 border border-white/50 dark:border-slate-800" >
-              <div className="flex justify-between items-center mb-8">
-                <h2 className="text-2xl font-bold text-slate-900 dark:text-white tracking-tight">Add New Birthday</h2>
-                <button onClick={() => setIsAddModalOpen(false)} className="p-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all"><X size={24} /></button>
-              </div>
-
-              <form onSubmit={handleAddBirthday} className="space-y-6">
-                <div className="space-y-2">
-                  <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider ml-1">Friend's Name</label>
-                  <input type="text" required className="input-field" placeholder="Enter name" value={form.friendName} onChange={(e) => setForm({...form, friendName: e.target.value})} />
-                </div>
-
-                <div className="space-y-4 bg-slate-50 dark:bg-slate-800/50 p-6 rounded-3xl border border-slate-100 dark:border-slate-800">
-                  <div className="flex items-center justify-between mb-2">
-                    <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Birthday Details</label>
+      <Card 
+        className="shrink-0" 
+        title="Upcoming Birthdays" 
+        action={
+          <div className="flex items-center gap-3">
+            <button onClick={() => setIsAddModalOpen(true)} className="flex items-center gap-1.5 px-3 py-1.5 bg-indigo-600 text-white rounded-xl text-xs font-medium hover:bg-indigo-500 transition-all shadow-sm">
+              <Plus size={14} /> Add New
+            </button>
+            <button className="text-zinc-400 text-xs font-medium hover:text-indigo-600 transition-all">View all</button>
+          </div>
+        }
+      >
+        <div className="space-y-1">
+          {upcoming.length > 0 ? (
+            upcoming.map((bday, index) => (
+              <div 
+                key={bday.id} 
+                id={`birthday-${bday.id}`}
+                className={`flex items-center justify-between py-3.5 px-3 rounded-2xl transition-all group ${
+                  highlightedId === bday.id 
+                    ? 'bg-indigo-50 dark:bg-indigo-500/10 ring-2 ring-indigo-500/20' 
+                    : index % 2 === 0 ? 'bg-transparent' : 'bg-zinc-50/50 dark:bg-zinc-800/30'
+                }`}
+              >
+                <div className="flex items-center gap-4">
+                  <Avatar name={bday.friend_name} />
+                  <div>
+                    <h4 className="text-sm font-semibold text-zinc-900 dark:text-white leading-tight mb-0.5">{bday.friend_name}</h4>
                     <div className="flex items-center gap-2">
-                      <input type="checkbox" id="includeYear" checked={form.includeYear} onChange={(e) => setForm({...form, includeYear: e.target.checked})} className="w-4 h-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-600" />
-                      <label htmlFor="includeYear" className="text-xs text-slate-400 font-medium">Include year?</label>
-                    </div>
-                  </div>
-                  
-                  <div className="grid grid-cols-3 gap-4">
-                    <div className="space-y-1">
-                      <label className="text-[10px] uppercase tracking-wider text-slate-400 font-bold ml-1">Month</label>
-                      <select required className="input-field py-2 text-sm bg-white dark:bg-slate-800" value={form.month} onChange={(e) => setForm({...form, month: e.target.value})}>
-                        <option value="">Select</option>
-                        {Array.from({ length: 12 }, (_, i) => (
-                          <option key={i + 1} value={i + 1}>{getMonthName(i + 1)}</option>
-                        ))}
-                      </select>
-                    </div>
-                    <div className="space-y-1">
-                      <label className="text-[10px] uppercase tracking-wider text-slate-400 font-bold ml-1">Day</label>
-                      <input type="number" required min="1" max="31" className="input-field py-2 text-sm bg-white dark:bg-slate-800" placeholder="Day" value={form.day} onChange={(e) => setForm({...form, day: e.target.value})} />
-                    </div>
-                    <div className="space-y-1">
-                      <label className={`text-[10px] uppercase tracking-wider font-bold ml-1 ${form.includeYear ? 'text-slate-400' : 'text-slate-200 dark:text-slate-700'}`}>Year</label>
-                      <input type="number" disabled={!form.includeYear} min="1900" max={new Date().getFullYear()} className="input-field py-2 text-sm bg-white dark:bg-slate-800 disabled:opacity-30 disabled:cursor-not-allowed" placeholder="Year" value={form.year} onChange={(e) => setForm({...form, year: e.target.value})} />
+                      <span className="text-xs text-zinc-400">{getMonthName(bday.month)} {bday.day}</span>
+                      {getReminderText(bday.days_until) && (
+                        <>
+                          <span className="w-1 h-1 rounded-full bg-zinc-200 dark:bg-zinc-800" />
+                          <span className="text-[10px] font-medium text-zinc-400 italic">
+                            {getReminderText(bday.days_until)}
+                          </span>
+                        </>
+                      )}
                     </div>
                   </div>
                 </div>
-
-                <div className="space-y-2">
-                  <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider ml-1">Contact Email</label>
-                  <input type="email" className="input-field" placeholder="friend@example.com" value={form.email} onChange={(e) => setForm({...form, email: e.target.value})} />
+                <div className="flex items-center gap-3">
+                  {bday.days_until < 7 && (
+                    <button className="hidden md:flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-500 dark:text-zinc-400 text-[10px] font-bold hover:text-indigo-600 transition-all border border-zinc-200/50 dark:border-zinc-700/50">
+                      <Gift size={12} /> Gift ideas →
+                    </button>
+                  )}
+                  <div className={`px-3 py-1 rounded-full border text-[11px] font-bold tracking-wide ${getUrgencyStyles(bday.days_until)}`}>
+                    In {bday.days_until} days
+                  </div>
+                  <button className="p-2 text-zinc-400 hover:text-indigo-600 hover:bg-indigo-50 dark:hover:bg-indigo-500/10 rounded-lg transition-all opacity-0 group-hover:opacity-100">
+                    <Send size={18} />
+                  </button>
                 </div>
+              </div>
+            ))
+          ) : (
+            <div className="text-center py-12 text-zinc-400">
+              <Cake size={40} className="mx-auto mb-4 opacity-20" />
+              <p className="text-sm">No upcoming birthdays found. Add your first friend!</p>
+            </div>
+          )}
+        </div>
+      </Card>
 
-                <Button type="submit" disabled={formLoading} className="w-full py-4 shadow-xl shadow-indigo-100 dark:shadow-none">
-                  {formLoading ? <Loader2 className="animate-spin mx-auto" size={20} /> : "Save Birthday"}
-                </Button>
-              </form>
-            </motion.div>
+      <div className="bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 rounded-[2rem] p-5 flex items-center justify-between shrink-0 shadow-sm">
+        <div className="flex items-center gap-4">
+          <div className="w-10 h-10 bg-zinc-50 dark:bg-zinc-800 rounded-xl flex items-center justify-center text-zinc-500 dark:text-zinc-400"><Clock size={20} /></div>
+          <div>
+            <h4 className="font-medium text-zinc-900 dark:text-white text-sm">Smart Reminders</h4>
+            <p className="text-xs text-zinc-500">
+              {user?.is_smart_reminders_enabled !== false ? (
+                `Notify ${user?.reminder_days_before === 0 ? 'on the day' : `${user?.reminder_days_before} days before`} at ${user?.reminder_time?.substring(0, 5) || '09:00'}`
+              ) : (
+                'Notifications are currently disabled'
+              )}
+            </p>
           </div>
-        )}
-      </AnimatePresence>
+        </div>
+        <Button 
+          onClick={() => setIsSettingsModalOpen(true)}
+          className="py-2 px-5 text-xs font-medium rounded-xl shadow-sm"
+        >
+          Manage Alerts
+        </Button>
+      </div>
     </div>
-  );
+
+    {/* Right Column - Calendar */}
+    <div className="flex flex-col min-h-0 gap-4">
+      <CalendarCard 
+        birthdays={upcoming} 
+        onEventClick={(id) => {
+          setHighlightedId(id);
+          const element = document.getElementById(`birthday-${id}`);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+          // Clear highlight after 3 seconds
+          setTimeout(() => setHighlightedId(null), 3000);
+        }} 
+      />
+    </div>
+  </div>
+</main>
+
+ <SmartReminderModal 
+ isOpen={isSettingsModalOpen} 
+ onClose={() => setIsSettingsModalOpen(false)} 
+ user={user}
+ onUpdate={(updatedUser) => setUser(updatedUser)}
+ />
+
+ <AnimatePresence>
+ {isAddModalOpen && (
+ <div className="fixed inset-0 z-50 flex items-center justify-center p-6">
+ <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setIsAddModalOpen(false)} className="absolute inset-0 bg-zinc-900/40 backdrop-blur-sm" />
+ <motion.div initial={{ opacity: 0, scale: 0.9, y: 20 }} animate={{ opacity: 1, scale: 1, y: 0 }} exit={{ opacity: 0, scale: 0.9, y: 20 }} className="bg-white dark:bg-zinc-900 w-full max-w-lg p-10 rounded-[3rem] shadow-2xl relative z-10 border border-white/50 dark:border-zinc-800" >
+ <div className="flex justify-between items-center mb-8">
+ <h2 className="text-2xl font-bold text-zinc-900 dark:text-white tracking-tight">Add New Birthday</h2>
+ <button onClick={() => setIsAddModalOpen(false)} className="p-2 hover:bg-zinc-50 dark:hover:bg-zinc-800 rounded-xl text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-all"><X size={24} /></button>
+ </div>
+
+ <form onSubmit={handleAddBirthday} className="space-y-6">
+ <div className="space-y-2">
+ <label className="text-xs font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider ml-1">Friend's Name</label>
+ <input type="text" required className="input-field" placeholder="Enter name" value={form.friendName} onChange={(e) => setForm({...form, friendName: e.target.value})} />
+ </div>
+
+ <div className="space-y-4 bg-zinc-50 dark:bg-zinc-800/50 p-6 rounded-3xl border border-zinc-100 dark:border-zinc-800">
+ <div className="flex items-center justify-between mb-2">
+ <label className="text-xs font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider">Birthday Details</label>
+ <div className="flex items-center gap-2">
+ <input type="checkbox" id="includeYear" checked={form.includeYear} onChange={(e) => setForm({...form, includeYear: e.target.checked})} className="w-4 h-4 rounded border-zinc-300 text-indigo-600 focus:ring-indigo-600" />
+ <label htmlFor="includeYear" className="text-xs text-zinc-400 font-medium">Include year?</label>
+ </div>
+ </div>
+ 
+ <div className="grid grid-cols-3 gap-4">
+ <div className="space-y-1">
+ <label className="text-[10px] uppercase tracking-wider text-zinc-400 font-bold ml-1">Month</label>
+ <select required className="input-field py-2 text-sm bg-white dark:bg-zinc-800" value={form.month} onChange={(e) => setForm({...form, month: e.target.value})}>
+ <option value="">Select</option>
+ {Array.from({ length: 12 }, (_, i) => (
+ <option key={i + 1} value={i + 1}>{getMonthName(i + 1)}</option>
+ ))}
+ </select>
+ </div>
+ <div className="space-y-1">
+ <label className="text-[10px] uppercase tracking-wider text-zinc-400 font-bold ml-1">Day</label>
+ <input type="number" required min="1" max="31" className="input-field py-2 text-sm bg-white dark:bg-zinc-800" placeholder="Day" value={form.day} onChange={(e) => setForm({...form, day: e.target.value})} />
+ </div>
+ <div className="space-y-1">
+ <label className={`text-[10px] uppercase tracking-wider font-bold ml-1 ${form.includeYear ? 'text-zinc-400' : 'text-zinc-200 dark:text-zinc-700'}`}>Year</label>
+ <input type="number" disabled={!form.includeYear} min="1900" max={new Date().getFullYear()} className="input-field py-2 text-sm bg-white dark:bg-zinc-800 disabled:opacity-30 disabled:cursor-not-allowed" placeholder="Year" value={form.year} onChange={(e) => setForm({...form, year: e.target.value})} />
+ </div>
+ </div>
+ </div>
+
+ <div className="space-y-2">
+ <label className="text-xs font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider ml-1">Contact Email</label>
+ <input type="email" className="input-field" placeholder="friend@example.com" value={form.email} onChange={(e) => setForm({...form, email: e.target.value})} />
+ </div>
+
+ <Button type="submit" disabled={formLoading} className="w-full py-4 shadow-xl dark:shadow-none">
+ {formLoading ? <Loader2 className="animate-spin mx-auto" size={20} /> : "Save Birthday"}
+ </Button>
+ </form>
+ </motion.div>
+ </div>
+ )}
+ </AnimatePresence>
+ </div>
+ );
 }

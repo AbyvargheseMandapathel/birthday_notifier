@@ -46,7 +46,7 @@ body {
 .glass {
   background-color: var(--card-bg);
   border: 1px solid var(--card-border);
-  @apply shadow-sm shadow-slate-200/50 backdrop-blur-md;
+  @apply shadow-sm shadow-zinc-200/50 backdrop-blur-md;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -64,7 +64,7 @@ body {
 }
 
 .btn-secondary {
-  @apply px-8 py-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-200 font-bold transition-all duration-300 hover:bg-slate-50 dark:hover:bg-slate-800 active:scale-95;
+  @apply px-8 py-4 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-200 font-bold transition-all duration-300 hover:bg-zinc-50 dark:hover:bg-zinc-800 active:scale-95;
 }
 
 .input-field {
@@ -75,4 +75,12 @@ body {
   background-color: var(--card-bg);
   border: 1px solid var(--card-border);
   @apply rounded-[2rem] p-6 shadow-sm;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none !important;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
 }
