@@ -9,6 +9,10 @@ RUN npm install
 # Copy project files
 COPY . .
 
+# Set the API URL at build time (Next.js bakes NEXT_PUBLIC_ vars during build)
+ARG NEXT_PUBLIC_API_URL=https://apitest.birthdayremainder.online
+ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
+
 # Build the Next.js app
 RUN npm run build
 
