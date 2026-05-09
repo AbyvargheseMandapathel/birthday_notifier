@@ -12,7 +12,26 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-dev-key')
 
 DEBUG = os.getenv('DEBUG', '1') == '1'
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [
+    'test.birthdayremainder.online',
+    'apitest.birthdayremainder.online',
+    'birthdayremainder.online',
+    'api.birthdayremainder.online',
+    'localhost',
+    '127.0.0.1'
+]
+
+# Security settings for production
+if not os.getenv('DEBUG', '1') == '1':
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    SECURE_BROWSER_XSS_FILTER = True
+    SECURE_CONTENT_TYPE_NOSNIFF = True
+    SECURE_SSL_REDIRECT = True
+    SECURE_HSTS_SECONDS = 31536000 # 1 year
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_HSTS_PRELOAD = True
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -119,7 +138,18 @@ SIMPLE_JWT = {
 }
 
 # CORS
-CORS_ALLOW_ALL_ORIGINS = True # For development
+CORS_ALLOWED_ORIGINS = [
+    "https://test.birthdayremainder.online",
+    "https://birthdayremainder.online",
+    "https://www.birthdayremainder.online",
+    "http://localhost:3000",
+]
+CSRF_TRUSTED_ORIGINS = [
+    "https://test.birthdayremainder.online",
+    "https://apitest.birthdayremainder.online",
+    "https://birthdayremainder.online",
+    "https://api.birthdayremainder.online",
+]
 
 # Celery
 CELERY_BROKER_URL = os.getenv('REDIS_URL', 'redis://localhost:6379/0')
