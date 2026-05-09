@@ -1,0 +1,35 @@
+# Django
+**/__pycache__/
+*.py[cod]
+*$py.class
+backend/db.sqlite3
+backend/staticfiles/
+backend/media/
+.python-version
+
+# Next.js
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/build/
+frontend/.env*.local
+
+# Environment variables
+.env
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Docker
+*.log
+docker-compose.override.yml
+
+# Celery
+celerybeat-schedule
