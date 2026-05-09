@@ -14,20 +14,20 @@ export const Card = ({ children, className = '', title, action }) => (
 
 export const Avatar = ({ name, size = 'md' }) => {
   const sizes = {
-    sm: 'w-8 h-8 text-xs',
-    md: 'w-10 h-10 text-sm',
-    lg: 'w-12 h-12 text-base'
+    sm: 'w-8 h-8 text-[10px]',
+    md: 'w-10 h-10 text-xs',
+    lg: 'w-12 h-12 text-sm'
   };
 
   const getColors = (name) => {
     const colors = [
-      'bg-rose-100 text-rose-600',
-      'bg-indigo-100 text-indigo-600',
-      'bg-emerald-100 text-emerald-600',
-      'bg-amber-100 text-amber-600',
-      'bg-sky-100 text-sky-600',
-      'bg-violet-100 text-violet-600',
-      'bg-orange-100 text-orange-600'
+      'bg-rose-100/50 text-rose-600 dark:bg-rose-500/10 dark:text-rose-400',
+      'bg-indigo-100/50 text-indigo-600 dark:bg-indigo-500/10 dark:text-indigo-400',
+      'bg-emerald-100/50 text-emerald-600 dark:bg-emerald-500/10 dark:text-emerald-400',
+      'bg-amber-100/50 text-amber-600 dark:bg-amber-500/10 dark:text-amber-400',
+      'bg-sky-100/50 text-sky-600 dark:bg-sky-500/10 dark:text-sky-400',
+      'bg-violet-100/50 text-violet-600 dark:bg-violet-500/10 dark:text-violet-400',
+      'bg-orange-100/50 text-orange-600 dark:bg-orange-500/10 dark:text-orange-400'
     ];
     let hash = 0;
     for (let i = 0; i < name.length; i++) {
@@ -37,7 +37,7 @@ export const Avatar = ({ name, size = 'md' }) => {
   };
 
   return (
-    <div className={`${sizes[size]} ${getColors(name)} rounded-xl flex items-center justify-center font-semibold shrink-0`}>
+    <div className={`${sizes[size]} ${getColors(name)} rounded-2xl flex items-center justify-center font-bold shrink-0 border border-black/5 dark:border-white/5`}>
       {name.charAt(0).toUpperCase()}
     </div>
   );
@@ -59,28 +59,32 @@ export const AvatarGroup = ({ users, limit = 3 }) => (
 );
 
 export const StatCard = ({ icon, label, value, sub, isPrimary = false, avatars = null }) => {
-  const baseStyle = "rounded-2xl p-4 flex flex-col gap-3 justify-between transition-all";
-  const primaryStyle = "bg-indigo-600 text-white shadow-lg";
-  const secondaryStyle = "bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 text-zinc-900 dark:text-white";
+  const baseStyle = "rounded-[2rem] p-6 flex flex-col gap-3 justify-between transition-all hover:scale-[1.02] active:scale-[0.98] cursor-default";
+  const primaryStyle = "bg-gradient-to-br from-indigo-600 to-violet-600 text-white shadow-xl shadow-indigo-500/20";
+  const secondaryStyle = "bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 text-zinc-900 dark:text-white shadow-sm";
 
   return (
-    <div className={`${baseStyle} ${isPrimary ? primaryStyle : secondaryStyle}`}>
+    <motion.div 
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      className={`${baseStyle} ${isPrimary ? primaryStyle : secondaryStyle}`}
+    >
       <div className="flex justify-between items-start">
-        <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${isPrimary ? 'bg-white/20' : 'bg-zinc-50 dark:bg-zinc-800'}`}>
+        <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 ${isPrimary ? 'bg-white/20 backdrop-blur-md' : 'bg-zinc-50 dark:bg-zinc-800 border border-zinc-100 dark:border-zinc-700'}`}>
           {icon}
         </div>
         {avatars && <AvatarGroup users={avatars} />}
       </div>
       <div>
-        <p className={`text-[11px] font-medium uppercase tracking-wider mb-1 ${isPrimary ? 'text-indigo-200' : 'text-zinc-500 dark:text-zinc-400'}`}>
+        <p className={`text-[10px] font-bold uppercase tracking-[0.15em] mb-1.5 ${isPrimary ? 'text-indigo-100' : 'text-zinc-400 dark:text-zinc-500'}`}>
           {label}
         </p>
         <div className="flex items-baseline gap-2">
-          <span className="text-3xl font-semibold leading-none">{value}</span>
+          <span className="text-3xl font-black leading-none tracking-tight">{value}</span>
         </div>
-        <p className={`text-xs mt-1 ${isPrimary ? 'text-indigo-200' : 'text-zinc-400'}`}>{sub}</p>
+        <p className={`text-[10px] font-medium mt-2 ${isPrimary ? 'text-indigo-200' : 'text-zinc-400 dark:text-zinc-500'}`}>{sub}</p>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -36,18 +36,18 @@ export default function CalendarCard({ birthdays, onEventClick }) {
   };
 
   return (
-    <div className="bg-white dark:bg-zinc-900 rounded-[2rem] p-4 border border-zinc-100 dark:border-zinc-800 shadow-sm flex-1 overflow-y-auto scrollbar-hide flex flex-col">
-      <div className="flex justify-between items-center mb-4 shrink-0 px-2">
-        <h2 className="text-base font-semibold text-zinc-900 dark:text-white">{monthName} {year}</h2>
+    <div className="bg-white dark:bg-zinc-900 rounded-[2rem] p-6 border border-zinc-100 dark:border-zinc-800 shadow-sm flex-1 overflow-y-auto scrollbar-hide flex flex-col">
+      <div className="flex justify-between items-center mb-6 shrink-0 px-1">
+        <h2 className="text-lg font-black text-zinc-900 dark:text-white tracking-tight">{monthName}</h2>
         <div className="flex gap-2">
           <button onClick={prevMonth} className="p-2 hover:bg-zinc-50 dark:hover:bg-zinc-800 rounded-xl text-zinc-400"><ChevronLeft size={18} /></button>
           <button onClick={nextMonth} className="p-2 hover:bg-zinc-50 dark:hover:bg-zinc-800 rounded-xl text-zinc-400"><ChevronRight size={18} /></button>
         </div>
       </div>
 
-      <div className="grid grid-cols-7 gap-y-2 text-center mb-5 shrink-0">
+      <div className="grid grid-cols-7 gap-y-3 text-center mb-6 shrink-0">
         {['S','M','T','W','T','F','S'].map((d, i) => (
-          <span key={`${d}-${i}`} className="text-[10px] font-medium text-zinc-400 uppercase tracking-widest">{d}</span>
+          <span key={`${d}-${i}`} className="text-[10px] font-bold text-zinc-400 dark:text-zinc-600 uppercase tracking-widest">{d}</span>
         ))}
         
         {padding.map((_, i) => <div key={`p-${i}`} />)}
@@ -56,20 +56,20 @@ export default function CalendarCard({ birthdays, onEventClick }) {
           const bdays = getBirthdaysOnDay(d);
           const hasBirthday = bdays.length > 0;
           const activeStyle = isSelected(d) 
-            ? 'bg-indigo-600 text-white font-semibold shadow-sm' 
+            ? 'bg-indigo-600 text-white font-bold shadow-lg shadow-indigo-500/20' 
             : isToday(d)
-              ? 'bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 font-semibold'
-              : 'text-zinc-600 dark:text-zinc-400';
+              ? 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 font-bold'
+              : 'text-zinc-600 dark:text-zinc-400 font-medium';
           
           return (
             <div 
               key={d} 
               onClick={() => setSelectedDay(d)}
-              className={`text-xs w-8 h-8 mx-auto rounded-xl flex items-center justify-center relative cursor-pointer hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-all ${activeStyle}`}
+              className={`text-xs w-9 h-9 mx-auto rounded-xl flex items-center justify-center relative cursor-pointer hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-all ${activeStyle}`}
             >
               {d}
               {hasBirthday && (
-                <span className={`absolute bottom-1 w-1 h-1 rounded-full ${isSelected(d) ? 'bg-white' : 'bg-indigo-500'}`}></span>
+                <span className={`absolute bottom-1.5 w-1 h-1 rounded-full ${isSelected(d) ? 'bg-white' : 'bg-indigo-500'}`}></span>
               )}
             </div>
           );

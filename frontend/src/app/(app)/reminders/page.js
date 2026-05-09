@@ -2,7 +2,6 @@
 import { useEffect, useState } from 'react';
 import { useAuth } from '@/context/AuthContext';
 import api from '@/lib/api';
-import Sidebar from '@/components/Sidebar';
 import { 
  Bell, 
  Search, 
@@ -50,9 +49,6 @@ export default function RemindersPage() {
  }
 
  return (
- <div className="flex min-h-screen bg-zinc-50/50">
- <Sidebar />
-
  <main className="flex-1 p-8">
  <header className="flex justify-between items-end mb-10">
  <div>
@@ -194,6 +190,5 @@ export default function RemindersPage() {
  </div>
  </div>
  </main>
- </div>
  );
 }

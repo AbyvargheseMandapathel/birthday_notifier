@@ -3,33 +3,25 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { 
- Cake, 
- LayoutDashboard, 
- Calendar, 
- Users, 
- Bell, 
- Gift, 
- BarChart3, 
- Settings, 
- LogOut,
- Users2,
- ChevronLeft,
- ChevronRight,
- PanelLeftClose,
- PanelLeftOpen
+  Cake, 
+  LayoutDashboard,
+  Calendar, 
+  Gift, 
+  Settings, 
+  LogOut,
+  Users2,
+  PanelLeftClose,
+  PanelLeftOpen
 } from 'lucide-react';
 import { useAuth } from '@/context/AuthContext';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const menuItems = [
- { icon: LayoutDashboard, label: 'Dashboard', href: '/dashboard' },
- { icon: Cake, label: 'Birthdays', href: '/birthdays' },
- { icon: Calendar, label: 'Calendar', href: '/calendar' },
- { icon: Bell, label: 'Reminders', href: '/reminders' },
- { icon: Users2, label: 'People', href: '/people' },
- { icon: Gift, label: 'Gift Ideas', href: '/gifts' },
- { icon: BarChart3, label: 'Statistics', href: '/stats' },
- { icon: Settings, label: 'Settings', href: '/settings' },
+  { icon: LayoutDashboard, label: 'Dashboard', href: '/dashboard' },
+  { icon: Calendar, label: 'Calendar', href: '/calendar' },
+  { icon: Users2, label: 'People', href: '/people' },
+  { icon: Gift, label: 'Gift Ideas', href: '/gifts' },
+  { icon: Settings, label: 'Settings', href: '/settings' },
 ];
 
 export default function Sidebar() {
@@ -43,30 +35,30 @@ export default function Sidebar() {
  animate={{ width: isCollapsed ? 72 : 220 }}
  className="min-h-screen bg-white dark:bg-[#080d1a] border-r border-zinc-100 dark:border-zinc-800/60 flex flex-col p-3 sticky top-0 transition-colors duration-300 overflow-hidden"
  >
- <div className={`flex items-center ${isCollapsed ? 'justify-center' : 'justify-between'} mb-6 px-2`}>
- <div className="flex items-center gap-3">
- <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center shadow-md shrink-0">
- <Cake className="text-white" size={16} />
- </div>
- {!isCollapsed && (
- <motion.span 
- initial={{ opacity: 0, x: -10 }}
- animate={{ opacity: 1, x: 0 }}
- className="text-base font-semibold text-zinc-900 dark:text-white tracking-tight whitespace-nowrap"
- >
- BirthdayRemainder
- </motion.span>
- )}
- </div>
- {!isCollapsed && (
- <button 
- onClick={() => setIsCollapsed(true)}
- className="p-1.5 hover:bg-zinc-50 dark:hover:bg-zinc-800 rounded-lg text-zinc-400 transition-colors"
- >
- <PanelLeftClose size={18} />
- </button>
- )}
- </div>
+  <div className={`flex items-center ${isCollapsed ? 'justify-center' : 'justify-between'} mb-10 px-2`}>
+    <div className="flex items-center gap-3">
+      <div className="w-9 h-9 bg-indigo-600 rounded-xl flex items-center justify-center shadow-lg shadow-indigo-500/20 shrink-0">
+        <Cake className="text-white" size={18} />
+      </div>
+      {!isCollapsed && (
+        <motion.span 
+          initial={{ opacity: 0, x: -10 }}
+          animate={{ opacity: 1, x: 0 }}
+          className="text-lg font-bold text-zinc-900 dark:text-white tracking-tight whitespace-nowrap"
+        >
+          BirthdayRemainder
+        </motion.span>
+      )}
+    </div>
+    {!isCollapsed && (
+      <button 
+        onClick={() => setIsCollapsed(true)}
+        className="p-2 hover:bg-zinc-100 dark:hover:bg-zinc-800/80 rounded-xl text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 transition-all ml-2"
+      >
+        <PanelLeftClose size={20} />
+      </button>
+    )}
+  </div>
 
  {isCollapsed && (
  <div className="flex justify-center mb-6">
@@ -87,13 +79,13 @@ export default function Sidebar() {
  key={item.href}
  href={item.href}
  title={isCollapsed ? item.label : ""}
- className={`flex items-center ${isCollapsed ? 'justify-center' : 'gap-2.5 px-3'} py-2 rounded-xl transition-all duration-200 group ${
- isActive 
- ? 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 font-medium shadow-sm shadow-indigo-500/10' 
- : 'text-zinc-500 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 hover:text-zinc-900 dark:hover:text-white font-normal'
- }`}
- >
- <item.icon size={18} className={`${isActive ? 'text-indigo-600 dark:text-indigo-400' : 'text-zinc-400 dark:text-zinc-500 group-hover:text-zinc-600 dark:group-hover:text-zinc-300'} shrink-0`} />
+  className={`flex items-center ${isCollapsed ? 'justify-center' : 'gap-3 px-4'} py-2.5 rounded-2xl transition-all duration-300 group ${
+    isActive 
+      ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/30' 
+      : 'text-zinc-500 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800/60 hover:text-zinc-900 dark:hover:text-white font-medium'
+  }`}
+>
+  <item.icon size={20} className={`${isActive ? 'text-white' : 'text-zinc-400 dark:text-zinc-500 group-hover:text-zinc-600 dark:group-hover:text-zinc-300'} shrink-0 transition-colors`} />
  {!isCollapsed && (
  <motion.span
  initial={{ opacity: 0, x: -10 }}

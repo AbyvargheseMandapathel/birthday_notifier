@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Cake, Play, Star, ChevronDown, CheckCircle2, ArrowRight, Bell, Gift, BarChart3, Settings, Users, Calendar, Home as HomeIcon } from "lucide-react";
+import { Cake, Play, Star, ChevronDown, CheckCircle2, ArrowRight, Bell, Gift, BarChart3, Settings, Users, Calendar, LayoutDashboard, Home as HomeIcon } from "lucide-react";
 
 /* ─── tiny reusable pieces for the mockup ────────────────────────── */
 const Dot = ({ color }) => <span className={`w-2 h-2 rounded-full ${color}`} />;
@@ -136,16 +136,13 @@ export default function Home() {
  <div className="w-7 h-7 bg-indigo-600 rounded-lg flex items-center justify-center"><Cake className="text-white" size={14} /></div>
  <span className="text-[10px] font-extrabold text-white tracking-tight">BirthdayRemainder</span>
  </div>
- {[
- { icon: HomeIcon, label: "Dashboard", active: true },
- { icon: Cake, label: "Birthdays" },
- { icon: Calendar, label: "Calendar" },
- { icon: Bell, label: "Reminders" },
- { icon: Users, label: "People" },
- { icon: Gift, label: "Gift Ideas" },
- { icon: BarChart3, label: "Statistics" },
- { icon: Settings, label: "Settings" },
- ].map((item, i) => (
+                  {[
+                    { icon: LayoutDashboard, label: "Dashboard", active: false },
+                    { icon: Calendar, label: "Calendar", active: true },
+                    { icon: Users, label: "People" },
+                    { icon: Gift, label: "Gift Ideas" },
+                    { icon: Settings, label: "Settings" },
+                  ].map((item, i) => (
  <div key={i} className={`flex items-center gap-2.5 px-3 py-2 rounded-xl text-[10px] font-bold transition-all cursor-pointer ${item.active ? 'bg-indigo-600/20 text-indigo-400' : 'text-zinc-500 hover:text-zinc-300'}`}>
  <item.icon size={14} />
  {item.label}

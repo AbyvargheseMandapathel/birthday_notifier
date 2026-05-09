@@ -2,7 +2,6 @@
 import { useEffect, useState } from 'react';
 import { useAuth } from '@/context/AuthContext';
 import { birthdayService } from '@/services/birthday';
-import Sidebar from '@/components/Sidebar';
 import DashboardHeader from '@/components/DashboardHeader';
 import CalendarCard from '@/components/CalendarCard';
 import { Card, StatCard, Button, Avatar, AvatarGroup } from '@/components/UI';
@@ -113,17 +112,15 @@ export default function Dashboard() {
  );
  }
 
- return (
- <div className="flex h-screen bg-[#f8fafc] dark:bg-[#02040a] relative selection:bg-indigo-500/30 text-zinc-900 dark:text-zinc-100 overflow-hidden">
- {/* Background Glow */}
- <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-40 dark:opacity-100">
- <div className="absolute top-[-10%] left-[20%] w-[50%] h-[50%] bg-indigo-600/10 dark:bg-indigo-600/5 rounded-full blur-[140px]" />
- </div>
- 
- <Sidebar />
+  return (
+  <main className="flex-1 p-4 lg:p-6 relative z-10 flex flex-col h-full min-w-0">
+  {/* Background Glow */}
+  <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-40 dark:opacity-100">
+  <div className="absolute top-[-10%] left-[20%] w-[50%] h-[50%] bg-indigo-600/10 dark:bg-indigo-600/5 rounded-full blur-[140px]" />
+  </div>
+  
 
- <main className="flex-1 p-4 lg:p-6 relative z-10 flex flex-col h-full min-w-0">
- <DashboardHeader user={user} search={search} setSearch={setSearch} totalContacts={stats.total} onQuickAdd={() => setIsAddModalOpen(true)} />
+  <DashboardHeader user={user} search={search} setSearch={setSearch} totalContacts={stats.total} onQuickAdd={() => setIsAddModalOpen(true)} />
 
   <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 flex-1 min-h-0">
     {/* Left Column - Main Scrollable Content */}
@@ -246,7 +243,7 @@ export default function Dashboard() {
     </div>
 
     {/* Right Column - Calendar */}
-    <div className="flex flex-col min-h-0 gap-4">
+    <div className="flex flex-col min-h-0 gap-4 overflow-y-auto scrollbar-hide pb-6 pr-1">
       <CalendarCard 
         birthdays={upcoming} 
         onEventClick={(id) => {
@@ -287,15 +284,9 @@ export default function Dashboard() {
  </div>
 
  <div className="space-y-4 bg-zinc-50 dark:bg-zinc-800/50 p-6 rounded-3xl border border-zinc-100 dark:border-zinc-800">
- <div className="flex items-center justify-between mb-2">
- <label className="text-xs font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider">Birthday Details</label>
- <div className="flex items-center gap-2">
- <input type="checkbox" id="includeYear" checked={form.includeYear} onChange={(e) => setForm({...form, includeYear: e.target.checked})} className="w-4 h-4 rounded border-zinc-300 text-indigo-600 focus:ring-indigo-600" />
- <label htmlFor="includeYear" className="text-xs text-zinc-400 font-medium">Include year?</label>
- </div>
- </div>
+ <label className="text-xs font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider mb-2 block">Birthday Date</label>
  
- <div className="grid grid-cols-3 gap-4">
+ <div className="grid grid-cols-2 gap-4">
  <div className="space-y-1">
  <label className="text-[10px] uppercase tracking-wider text-zinc-400 font-bold ml-1">Month</label>
  <select required className="input-field py-2 text-sm bg-white dark:bg-zinc-800" value={form.month} onChange={(e) => setForm({...form, month: e.target.value})}>
@@ -308,10 +299,6 @@ export default function Dashboard() {
  <div className="space-y-1">
  <label className="text-[10px] uppercase tracking-wider text-zinc-400 font-bold ml-1">Day</label>
  <input type="number" required min="1" max="31" className="input-field py-2 text-sm bg-white dark:bg-zinc-800" placeholder="Day" value={form.day} onChange={(e) => setForm({...form, day: e.target.value})} />
- </div>
- <div className="space-y-1">
- <label className={`text-[10px] uppercase tracking-wider font-bold ml-1 ${form.includeYear ? 'text-zinc-400' : 'text-zinc-200 dark:text-zinc-700'}`}>Year</label>
- <input type="number" disabled={!form.includeYear} min="1900" max={new Date().getFullYear()} className="input-field py-2 text-sm bg-white dark:bg-zinc-800 disabled:opacity-30 disabled:cursor-not-allowed" placeholder="Year" value={form.year} onChange={(e) => setForm({...form, year: e.target.value})} />
  </div>
  </div>
  </div>
@@ -328,7 +315,8 @@ export default function Dashboard() {
  </motion.div>
  </div>
  )}
- </AnimatePresence>
- </div>
- );
+  </AnimatePresence>
+  </div>
+  </main>
+  );
 }
