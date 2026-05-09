@@ -2965,3 +2965,4 @@
 2026-05-08 08:14:26.636397 - Birthday alert for Sreejith S: today.
 2026-05-08 19:01:34.750581 - Email sent for today: Sreejith S
 2026-05-08 19:01:34.787995 - Birthday alert for Sreejith S: today.
+2026-05-09 06:31:19.889140 - Error reading CSV file: (534, b'5.7.9 Please log in with your web browser and then try again. For more\n5.7.9 information, go to\n5.7.9  https://support.google.com/mail/?p=WebLoginRequired af79cd13be357-907b9772b87sm404648085a.5 - gsmtp')
