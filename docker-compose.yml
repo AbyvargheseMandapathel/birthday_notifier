@@ -10,7 +10,6 @@ services:
 
   backend:
     build: ./backend
-    command: gunicorn core.wsgi:application --bind 0.0.0.0:8000
     expose:
       - '8000'
     env_file:
@@ -21,12 +20,6 @@ services:
       - redis
     networks:
       - coolify
-    labels:
-      - traefik.enable=true
-      - traefik.http.routers.backend.rule=Host(`apitest.birthdayremainder.online`)
-      - traefik.http.routers.backend.entrypoints=websecure
-      - traefik.http.routers.backend.tls.certresolver=letsencrypt
-      - traefik.http.services.backend.loadbalancer.server.port=8000
 
   celery_worker:
     build: ./backend
@@ -58,12 +51,6 @@ services:
       - backend
     networks:
       - coolify
-    labels:
-      - traefik.enable=true
-      - traefik.http.routers.frontend.rule=Host(`test.birthdayremainder.online`)
-      - traefik.http.routers.frontend.entrypoints=websecure
-      - traefik.http.routers.frontend.tls.certresolver=letsencrypt
-      - traefik.http.services.frontend.loadbalancer.server.port=3000
 
 networks:
   coolify:
