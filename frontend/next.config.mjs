@@ -1,11 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    allowedDevOrigins: [
-      'test.birthdayremainder.online',
-      'birthdayremainder.online',
-    ],
-  },
+  output: 'standalone',
+  poweredByHeader: false,
+  reactStrictMode: true,
 };
 
 export default nextConfig;

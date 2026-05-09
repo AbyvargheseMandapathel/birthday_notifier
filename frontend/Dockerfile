@@ -1,18 +1,23 @@
-# Use official Node runtime as a parent image
-FROM node:20-slim
-
-# Set work directory
+# Stage 1: Build
+FROM node:20-slim AS builder
 WORKDIR /app
-
-# Install dependencies
 COPY package*.json ./
 RUN npm install
-
-# Copy project
 COPY . .
+RUN npm run build
 
-# Expose port
+# Stage 2: Run
+FROM node:20-slim AS runner
+WORKDIR /app
+ENV NODE_ENV production
+
+# Only copy necessary files from builder
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/.next/standalone ./
+COPY --from=builder /app/.next/static ./.next/static
+
 EXPOSE 3000
+ENV PORT 3000
 
-# Command to run on container start
-CMD ["npm", "run", "dev"]
+# The standalone build creates a server.js file
+CMD ["node", "server.js"]
