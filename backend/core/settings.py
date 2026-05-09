@@ -3,6 +3,8 @@ from pathlib import Path
 from datetime import timedelta
 import dj_database_url
 from dotenv import load_dotenv
+from celery.schedules import crontab
+
 
 load_dotenv()
 
@@ -47,6 +49,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'corsheaders',
     'django_celery_beat',
+    'django_rest_passwordreset',
     # Local
     'users',
     'birthdays',
@@ -161,11 +164,22 @@ CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TIMEZONE = 'UTC'
 
-# Email Settings (for development, output to console)
+# Email Settings
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_FROM_NAME = "BirthdayBuddy"
+EMAIL_FROM_EMAIL = "noreply@birthdayremainder.online"
+
+# Django Rest Password Reset
+DJANGO_REST_PASSWORDRESET_TOKEN_CONFIG = {
+    "CLASS": "django_rest_passwordreset.tokens.RandomNumberTokenGenerator",
+    "OPTIONS": {
+        "min_number": 100000,
+        "max_number": 999999
+    }
+}
+# We will use the default token but we'll send a link to the frontend
 
 # Celery Beat Schedule
-from celery.schedules import crontab
 CELERY_BEAT_SCHEDULE = {
     'send-birthday-reminders-daily': {
         'task': 'birthdays.tasks.send_daily_birthday_reminders',

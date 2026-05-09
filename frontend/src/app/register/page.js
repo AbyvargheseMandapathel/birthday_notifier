@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { useAuth } from '@/context/AuthContext';
 import Link from 'next/link';
-import { Cake, Mail, Lock, User, Globe, Loader2 } from 'lucide-react';
+import { Cake, Mail, Lock, User, Globe, Loader2, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function RegisterPage() {
@@ -28,38 +28,46 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-6 bg-slate-950 relative">
-      <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(99,102,241,0.1),transparent_50%)]" />
-      
+    <div className="min-h-screen flex items-center justify-center p-6 bg-[#02040a] relative overflow-hidden selection:bg-indigo-500/30">
+      {/* Background Glows */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-[-20%] right-[-10%] w-[60%] h-[60%] bg-indigo-600/10 rounded-full blur-[160px]" />
+        <div className="absolute bottom-[-20%] left-[-10%] w-[60%] h-[60%] bg-purple-600/10 rounded-full blur-[160px]" />
+      </div>
+
       <motion.div 
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        className="glass w-full max-w-lg p-10 rounded-3xl relative z-10"
+        initial={{ opacity: 0, scale: 0.95, y: 20 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        className="bg-[#0b0f1a] w-full max-w-2xl p-10 sm:p-14 rounded-[3.5rem] shadow-[0_80px_120px_-20px_rgba(0,0,0,0.6)] relative z-10 border border-slate-800/50"
       >
         <div className="text-center mb-10">
-          <div className="w-16 h-16 bg-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-xl shadow-indigo-500/20">
+          <div className="w-16 h-16 bg-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-2xl shadow-indigo-500/40">
             <Cake className="text-white" size={32} />
           </div>
-          <h1 className="text-3xl font-bold mb-2">Create Account</h1>
-          <p className="text-slate-400">Join BirthdayRem and never forget a date</p>
+          <h1 className="text-4xl font-extrabold text-white tracking-tight">Create Account</h1>
+          <p className="text-slate-400 mt-2 text-sm font-medium">Join BirthdayRemainder and never forget a date</p>
         </div>
 
         {error && (
-          <div className="bg-red-500/10 border border-red-500/20 text-red-400 p-4 rounded-xl mb-6 text-sm">
+          <motion.div 
+            initial={{ opacity: 0, x: -10 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="bg-red-500/10 border border-red-500/20 text-red-400 p-4 rounded-2xl mb-8 text-sm font-bold text-center"
+          >
             {error}
-          </div>
+          </motion.div>
         )}
 
-        <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-7">
           <div className="space-y-2 md:col-span-2">
-            <label className="text-sm font-medium text-slate-300 ml-1">Email Address</label>
-            <div className="relative">
-              <Mail className="absolute left-4 top-3.5 text-slate-500" size={18} />
+            <label className="text-[10px] font-black text-slate-500 uppercase tracking-widest ml-1">Email Address</label>
+            <div className="relative group">
+              <Mail className="absolute left-5 top-5 text-slate-500 group-focus-within:text-indigo-400 transition-colors" size={18} />
               <input 
                 type="email" 
                 required 
-                className="input-field pl-12"
-                placeholder="name@example.com"
+                className="w-full bg-[#02040a] text-white rounded-2xl pl-14 pr-6 py-5 text-sm focus:outline-none focus:ring-4 focus:ring-indigo-500/10 transition-all border border-slate-800/80 focus:border-indigo-500 placeholder:text-slate-700"
+                placeholder="me@example.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
@@ -67,13 +75,13 @@ export default function RegisterPage() {
           </div>
 
           <div className="space-y-2">
-            <label className="text-sm font-medium text-slate-300 ml-1">Username</label>
-            <div className="relative">
-              <User className="absolute left-4 top-3.5 text-slate-500" size={18} />
+            <label className="text-[10px] font-black text-slate-500 uppercase tracking-widest ml-1">Username</label>
+            <div className="relative group">
+              <User className="absolute left-5 top-5 text-slate-500 group-focus-within:text-indigo-400 transition-colors" size={18} />
               <input 
                 type="text" 
                 required 
-                className="input-field pl-12"
+                className="w-full bg-[#02040a] text-white rounded-2xl pl-14 pr-6 py-5 text-sm focus:outline-none focus:ring-4 focus:ring-indigo-500/10 transition-all border border-slate-800/80 focus:border-indigo-500 placeholder:text-slate-700"
                 placeholder="johndoe"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
@@ -82,31 +90,31 @@ export default function RegisterPage() {
           </div>
 
           <div className="space-y-2">
-            <label className="text-sm font-medium text-slate-300 ml-1">Timezone</label>
-            <div className="relative">
-              <Globe className="absolute left-4 top-3.5 text-slate-500" size={18} />
+            <label className="text-[10px] font-black text-slate-500 uppercase tracking-widest ml-1">Timezone</label>
+            <div className="relative group">
+              <Globe className="absolute left-5 top-5 text-slate-500 group-focus-within:text-indigo-400 transition-colors" size={18} />
               <select 
-                className="input-field pl-12 appearance-none"
+                className="w-full bg-[#02040a] text-white rounded-2xl pl-14 pr-10 py-5 text-sm focus:outline-none focus:ring-4 focus:ring-indigo-500/10 transition-all border border-slate-800/80 focus:border-indigo-500 appearance-none text-slate-300"
                 value={timezone}
                 onChange={(e) => setTimezone(e.target.value)}
               >
                 <option value="UTC">UTC</option>
-                <option value="America/New_York">EST</option>
-                <option value="Europe/London">GMT</option>
-                <option value="Asia/Kolkata">IST</option>
-                {/* Add more as needed or use a library */}
+                <option value="America/New_York">EST (New York)</option>
+                <option value="Europe/London">GMT (London)</option>
+                <option value="Asia/Kolkata">IST (Kolkata)</option>
+                <option value="Asia/Dubai">GST (Dubai)</option>
               </select>
             </div>
           </div>
 
           <div className="space-y-2 md:col-span-2">
-            <label className="text-sm font-medium text-slate-300 ml-1">Password</label>
-            <div className="relative">
-              <Lock className="absolute left-4 top-3.5 text-slate-500" size={18} />
+            <label className="text-[10px] font-black text-slate-500 uppercase tracking-widest ml-1">Password</label>
+            <div className="relative group">
+              <Lock className="absolute left-5 top-5 text-slate-500 group-focus-within:text-indigo-400 transition-colors" size={18} />
               <input 
                 type="password" 
                 required 
-                className="input-field pl-12"
+                className="w-full bg-[#02040a] text-white rounded-2xl pl-14 pr-6 py-5 text-sm focus:outline-none focus:ring-4 focus:ring-indigo-500/10 transition-all border border-slate-800/80 focus:border-indigo-500 placeholder:text-slate-700"
                 placeholder="••••••••"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -117,15 +125,20 @@ export default function RegisterPage() {
           <button 
             type="submit" 
             disabled={loading}
-            className="btn-primary md:col-span-2 flex items-center justify-center gap-2 mt-4"
+            className="w-full md:col-span-2 bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-5 rounded-2xl shadow-2xl shadow-indigo-600/30 flex items-center justify-center gap-3 transition-all active:scale-[0.98] disabled:opacity-70 mt-2 group"
           >
-            {loading ? <Loader2 className="animate-spin" size={20} /> : "Create Account"}
+            {loading ? <Loader2 className="animate-spin" size={24} /> : (
+              <>
+                <span className="text-lg">Create Account</span>
+                <ArrowRight size={22} className="group-hover:translate-x-1 transition-transform" />
+              </>
+            )}
           </button>
         </form>
 
-        <p className="mt-8 text-center text-slate-400 text-sm">
+        <p className="mt-12 text-center text-slate-500 text-sm font-bold">
           Already have an account? {' '}
-          <Link href="/login" className="text-indigo-400 font-semibold hover:text-indigo-300 transition-colors">
+          <Link href="/login" className="text-indigo-400 font-black hover:underline transition-all underline-offset-4">
             Sign In
           </Link>
         </p>

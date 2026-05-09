@@ -1,6 +1,11 @@
 import axios from 'axios';
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+// During build/SSR, we use the internal Docker name 'backend'
+// In the browser, we use the NEXT_PUBLIC_API_URL from .env (which should be localhost)
+const isServer = typeof window === 'undefined';
+const API_URL = isServer 
+  ? (process.env.INTERNAL_API_URL || 'http://backend:8000') 
+  : (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000');
 
 const api = axios.create({
   baseURL: API_URL,

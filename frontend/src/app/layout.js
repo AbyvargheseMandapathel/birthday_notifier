@@ -1,18 +1,15 @@
-import { Inter } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "@/context/AuthContext";
 
-const inter = Inter({ subsets: ["latin"] });
-
 export const metadata = {
-  title: "Birthday Reminder | Never Miss a Special Day",
-  description: "A dedicated platform to track, manage, and remember birthdays with automated notifications.",
+  title: "BirthdayRemainder | Premium Birthday Reminders",
+  description: "Never miss a special moment again with our smart reminder engine.",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-slate-950 text-slate-50 antialiased`}>
+      <body className={`font-sans bg-slate-50 text-slate-900 antialiased`}>
         <AuthProvider>
           {children}
         </AuthProvider>
