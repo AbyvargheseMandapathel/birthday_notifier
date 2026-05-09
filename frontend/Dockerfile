@@ -1,25 +1,18 @@
-# Stage 1: Build
-FROM node:20-slim AS builder
+FROM node:20-slim
+
 WORKDIR /app
+
+# Install dependencies
 COPY package*.json ./
 RUN npm install
+
+# Copy project files
 COPY . .
+
+# Build the Next.js app
 RUN npm run build
-
-# Stage 2: Run
-FROM node:20-slim AS runner
-WORKDIR /app
-ENV NODE_ENV production
-
-# Only copy necessary files from builder
-COPY --from=builder /app/public ./public
-COPY --from=builder /app/.next/standalone ./
-COPY --from=builder /app/.next/static ./.next/static
 
 EXPOSE 3000
 
-# Ensure the server listens on 0.0.0.0
-ENV PORT 3000
-ENV HOSTNAME "0.0.0.0"
-
-CMD ["node", "server.js"]
+# Start the production server
+CMD ["npm", "run", "start"]
