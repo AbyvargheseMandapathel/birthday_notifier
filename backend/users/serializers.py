@@ -21,3 +21,5 @@ class RegisterSerializer(serializers.ModelSerializer):
             timezone=validated_data.get('timezone', 'UTC')
         )
         return user
+
+    #
