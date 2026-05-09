@@ -22,4 +22,4 @@ class RegisterSerializer(serializers.ModelSerializer):
         )
         return user
 
-    #
+#end
