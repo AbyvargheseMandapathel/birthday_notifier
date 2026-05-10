@@ -41,6 +41,8 @@ class BirthdayRecord(models.Model):
     month = models.PositiveSmallIntegerField(default=1)
     year = models.PositiveSmallIntegerField(blank=True, null=True)
     
+    relationship = models.CharField(max_length=50, default='friend')
+    group = models.CharField(max_length=50, default='Friends')
     notes = models.TextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

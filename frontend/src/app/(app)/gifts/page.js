@@ -1,71 +1,171 @@
 "use client";
-import { Gift, Sparkles, Clock, ArrowRight, Loader2 } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { Gift, ShoppingBag, Utensils, Ticket, Star, Search, Filter, ArrowRight, Loader2, Sparkles } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useAuth } from '@/context/AuthContext';
+import { voucherService } from '@/services/voucher';
+import Image from 'next/image';
+
+const ICON_MAP = {
+  ShoppingBag: ShoppingBag,
+  Utensils: Utensils,
+  Ticket: Ticket,
+  Star: Star,
+  Gift: Gift
+};
+
+const CATEGORIES = ['All', 'Shopping', 'Food', 'Fashion', 'Entertainment', 'Gadgets'];
 
 export default function GiftIdeasPage() {
- const { loading: authLoading } = useAuth();
+  const { loading: authLoading } = useAuth();
+  const [vouchers, setVouchers] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [activeCategory, setActiveCategory] = useState('All');
+  const [searchQuery, setSearchQuery] = useState('');
 
- if (authLoading) {
- return (
- <div className="min-h-screen flex items-center justify-center bg-zinc-50">
- <Loader2 className="animate-spin text-indigo-500" size={48} />
- </div>
- );
- }
+  useEffect(() => {
+    fetchVouchers();
+  }, []);
 
- return (
-  <main className="flex-1 p-8 flex flex-col items-center justify-center relative overflow-hidden">
-  {/* Decorative background elements */}
-  <div className="absolute top-[-10%] right-[-10%] w-[40%] h-[40%] bg-pink-100/20 dark:bg-pink-600/5 rounded-full blur-[120px] opacity-60" />
-  <div className="absolute bottom-[-10%] left-[-10%] w-[40%] h-[40%] bg-indigo-100/20 dark:bg-indigo-600/5 rounded-full blur-[120px] opacity-60" />
+  const fetchVouchers = async () => {
+    try {
+      const data = await voucherService.getAll();
+      setVouchers(data);
+    } catch (err) {
+      console.error("Failed to fetch vouchers", err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-  <motion.div 
-  initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0 }}
-  className="text-center max-w-2xl relative z-10"
-  >
-  <div className="w-24 h-24 bg-white dark:bg-zinc-900 rounded-[2.5rem] flex items-center justify-center shadow-2xl mx-auto mb-10 border border-zinc-100 dark:border-zinc-800">
-  <Gift size={48} className="text-indigo-600 dark:text-indigo-400" />
-  </div>
-  
-  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-50 dark:bg-indigo-500/10 border border-indigo-100 dark:border-indigo-500/20 text-indigo-600 dark:text-indigo-400 text-xs font-bold mb-6">
-  <Sparkles size={14} />
-  AI-Powered Feature
-  </div>
+  const filteredVouchers = vouchers.filter(v => 
+    (activeCategory === 'All' || v.category === activeCategory) &&
+    v.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
-  <h1 className="text-5xl font-black text-zinc-900 dark:text-white mb-6 tracking-tighter">
-  Personalized <span className="text-indigo-600 dark:text-indigo-400 italic">Gift Ideas</span>
-  </h1>
-  
-  <p className="text-lg text-zinc-500 dark:text-zinc-400 mb-12 leading-relaxed font-medium">
-  We're building an intelligent engine that suggests the perfect gift based on your friend's 
-  interests, age, and your past celebrations. Never worry about what to buy again.
-  </p>
+  if (authLoading || loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-zinc-50 dark:bg-zinc-950">
+        <Loader2 className="animate-spin text-indigo-500" size={48} />
+      </div>
+    );
+  }
 
-  <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-  <div className="flex items-center gap-2 px-6 py-3 bg-white dark:bg-zinc-900 rounded-2xl border border-zinc-100 dark:border-zinc-800 shadow-sm text-zinc-600 dark:text-zinc-400 font-bold text-sm">
-  <Clock size={18} className="text-indigo-500 dark:text-indigo-400" />
-  Launching Summer 2024
-  </div>
-  <button className="btn-primary px-8 flex items-center gap-2 shadow-xl shadow-indigo-500/20">
-  Notify Me <ArrowRight size={18} />
-  </button>
-  </div>
+  return (
+    <main className="flex-1 p-4 lg:p-8 flex flex-col gap-8 relative overflow-y-auto h-full scrollbar-hide">
+      {/* Hero Section */}
+      <section className="relative h-[280px] rounded-[2.5rem] overflow-hidden flex items-center px-8 lg:px-12 shrink-0">
+        <Image 
+          src="/gift_vouchers_banner_1778395589065.png" 
+          alt="Gift Vouchers" 
+          fill 
+          className="object-cover brightness-[0.4]"
+        />
+        <div className="relative z-10 max-w-xl">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] font-bold uppercase tracking-widest mb-4">
+            <Sparkles size={12} className="text-amber-400" /> Premium Selection
+          </div>
+          <h1 className="text-4xl lg:text-5xl font-black text-white mb-4 tracking-tight leading-tight">
+            Give the Gift of <span className="text-indigo-400 italic">Choice.</span>
+          </h1>
+          <p className="text-zinc-300 text-sm lg:text-base font-medium max-w-md">
+            Never second-guess again. Send instant digital vouchers from the world's top brands directly to your friends.
+          </p>
+        </div>
+      </section>
 
-  <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-20 text-left">
-  {[
-  { title: "Smart Analysis", desc: "AI analyzes personality traits to find matching items." },
-  { title: "Budget Friendly", desc: "Filter suggestions by your preferred price range." },
-  { title: "One-Click Buy", desc: "Direct links to top retailers for hassle-free shopping." }
-  ].map((feature, i) => (
-  <div key={i} className="p-6 bg-white/50 dark:bg-zinc-900/50 backdrop-blur-sm rounded-[2rem] border border-white/50 dark:border-zinc-800 shadow-sm">
-  <h4 className="font-bold text-zinc-900 dark:text-white mb-2">{feature.title}</h4>
-  <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">{feature.desc}</p>
-  </div>
-  ))}
-  </div>
-  </motion.div>
-  </main>
- );
+      {/* Filters & Search */}
+      <section className="flex flex-col md:flex-row gap-4 items-center justify-between shrink-0">
+        <div className="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0 scrollbar-hide w-full md:w-auto">
+          {CATEGORIES.map(cat => (
+            <button
+              key={cat}
+              onClick={() => setActiveCategory(cat)}
+              className={`px-5 py-2.5 rounded-2xl text-xs font-bold transition-all whitespace-nowrap border ${
+                activeCategory === cat
+                  ? 'bg-indigo-600 text-white border-indigo-600 shadow-lg shadow-indigo-500/20'
+                  : 'bg-white dark:bg-zinc-900 text-zinc-500 dark:text-zinc-400 border-zinc-100 dark:border-zinc-800 hover:border-indigo-300 dark:hover:border-indigo-500/50'
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+        
+        <div className="relative w-full md:w-72">
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-400" size={18} />
+          <input 
+            type="text" 
+            placeholder="Search brands..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="w-full pl-11 pr-4 py-3 bg-white dark:bg-zinc-900 rounded-2xl border border-zinc-100 dark:border-zinc-800 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/20 transition-all"
+          />
+        </div>
+      </section>
+
+      {/* Voucher Grid */}
+      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 pb-8">
+        <AnimatePresence mode='popLayout'>
+          {filteredVouchers.map((voucher) => {
+            const IconComponent = ICON_MAP[voucher.icon_type] || ShoppingBag;
+            return (
+              <motion.div
+                layout
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                key={voucher.id}
+                className="group bg-white dark:bg-zinc-900 rounded-[2rem] overflow-hidden border border-zinc-100 dark:border-zinc-800 hover:shadow-2xl transition-all duration-500"
+              >
+                <div 
+                  className="h-24 p-6 flex justify-between items-start transition-all group-hover:h-32"
+                  style={{ backgroundColor: `${voucher.brand_color}15` }}
+                >
+                  <div 
+                    className="w-12 h-12 rounded-2xl flex items-center justify-center text-white shadow-lg"
+                    style={{ backgroundColor: voucher.brand_color }}
+                  >
+                    <IconComponent size={24} />
+                  </div>
+                  <div className="px-3 py-1 rounded-full bg-white dark:bg-zinc-950/50 text-[10px] font-black tracking-tighter" style={{ color: voucher.brand_color }}>
+                    {voucher.discount_text}
+                  </div>
+                </div>
+                
+                <div className="p-6">
+                  <div className="flex items-center justify-between mb-2">
+                    <h3 className="font-black text-xl text-zinc-900 dark:text-white tracking-tight">{voucher.name}</h3>
+                    <span className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">{voucher.category}</span>
+                  </div>
+                  <p className="text-xs text-zinc-500 dark:text-zinc-400 mb-6 leading-relaxed">
+                    {voucher.description}
+                  </p>
+                  <a 
+                    href={voucher.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full py-3 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-2"
+                    style={{ 
+                      backgroundColor: `${voucher.brand_color}10`,
+                      color: voucher.brand_color,
+                    }}
+                  >
+                    Buy Voucher <ArrowRight size={14} />
+                  </a>
+                </div>
+              </motion.div>
+            );
+          })}
+        </AnimatePresence>
+      </section>
+
+      {filteredVouchers.length === 0 && (
+        <div className="flex-1 flex flex-col items-center justify-center py-20 opacity-50">
+          <Search size={48} className="text-zinc-300 mb-4" />
+          <p className="text-zinc-500 font-medium">No vouchers found matching your search.</p>
+        </div>
+      )}
+    </main>
+  );
 }

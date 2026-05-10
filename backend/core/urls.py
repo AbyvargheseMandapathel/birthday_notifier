@@ -9,4 +9,5 @@ urlpatterns = [
     path('api/auth/password_reset/', include('django_rest_passwordreset.urls', namespace='password_reset')),
     path('api/users/', include('users.urls')),
     path('api/birthdays/', include('birthdays.urls')),
+    path('api/vouchers/', include('vouchers.urls')),
 ]

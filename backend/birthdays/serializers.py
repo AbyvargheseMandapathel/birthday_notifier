@@ -8,7 +8,7 @@ class BirthdayRecordSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = BirthdayRecord
-        fields = ('id', 'friend_name', 'day', 'month', 'year', 'notes', 'contact_email', 'age_turning', 'days_until', 'created_at')
+        fields = ('id', 'friend_name', 'day', 'month', 'year', 'notes', 'contact_email', 'relationship', 'group', 'age_turning', 'days_until', 'created_at')
         read_only_fields = ('id', 'created_at')
 
     def get_age_turning(self, obj):
