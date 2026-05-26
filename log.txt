@@ -3044,3 +3044,5 @@
 2026-05-25 11:00:04.676388 - Birthday alert for SUDHISH SANKAR R: today.
 2026-05-25 19:13:02.780156 - Email sent for today: SUDHISH SANKAR R
 2026-05-25 19:13:02.805333 - Birthday alert for SUDHISH SANKAR R: today.
+2026-05-26 08:05:20.147600 - Email sent for tomorrow: Maria Joy
+2026-05-26 08:05:20.159472 - Birthday alert for Maria Joy: tomorrow.
