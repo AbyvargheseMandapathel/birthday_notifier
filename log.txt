@@ -3050,3 +3050,5 @@
 2026-05-26 10:37:19.610166 - Birthday alert for Maria Joy: tomorrow.
 2026-05-26 19:52:46.422274 - Email sent for tomorrow: Maria Joy
 2026-05-26 19:52:46.435462 - Birthday alert for Maria Joy: tomorrow.
+2026-05-27 08:24:08.609019 - Email sent for today: Maria Joy
+2026-05-27 08:24:08.632542 - Birthday alert for Maria Joy: today.
