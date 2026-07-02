@@ -3188,3 +3188,5 @@
 2026-07-01 10:34:19.188626 - Birthday alert for Francina Joy : tomorrow.
 2026-07-01 19:27:17.890274 - Email sent for tomorrow: Francina Joy 
 2026-07-01 19:27:17.899771 - Birthday alert for Francina Joy : tomorrow.
+2026-07-02 07:49:24.002785 - Email sent for today: Francina Joy 
+2026-07-02 07:49:24.029572 - Birthday alert for Francina Joy : today.
