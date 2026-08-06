@@ -3302,3 +3302,5 @@
 2026-08-05 07:13:20.651303 - No birthdays today or tomorrow.
 2026-08-05 09:27:30.115157 - No birthdays today or tomorrow.
 2026-08-05 19:11:19.616649 - No birthdays today or tomorrow.
+2026-08-06 07:14:57.078360 - Email sent for tomorrow: Athira Sabu
+2026-08-06 07:14:57.091314 - Birthday alert for Athira Sabu: tomorrow.
