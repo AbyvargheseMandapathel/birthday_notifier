@@ -3380,3 +3380,5 @@
 2026-08-24 07:45:17.926812 - Birthday alert for Gayathri J: tomorrow.
 2026-08-24 18:22:14.459017 - Email sent for tomorrow: Gayathri J
 2026-08-24 18:22:14.495469 - Birthday alert for Gayathri J: tomorrow.
+2026-08-25 05:04:30.673551 - Email sent for today: Gayathri J
+2026-08-25 05:04:30.684682 - Birthday alert for Gayathri J: today.
