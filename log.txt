@@ -3470,3 +3470,4 @@
 2026-09-20 11:52:22.876785 - Birthday alert for Aparna Santhosh : today.
 2026-09-20 19:55:20.699571 - Email sent for today: Aparna Santhosh 
 2026-09-20 19:55:20.713383 - Birthday alert for Aparna Santhosh : today.
+2026-09-21 10:07:39.341584 - No birthdays today or tomorrow.
