@@ -3500,3 +3500,5 @@
 2026-09-29 13:25:49.239786 - Birthday alert for Akhil R: tomorrow.
 2026-09-29 21:36:32.121675 - Email sent for tomorrow: Akhil R
 2026-09-29 21:36:32.131733 - Birthday alert for Akhil R: tomorrow.
+2026-09-30 10:38:28.665602 - Email sent for today: Akhil R
+2026-09-30 10:38:28.692414 - Birthday alert for Akhil R: today.
